@@ -1,0 +1,74 @@
+{% extends "layout.html.twig" %}
+{% block title %}
+	{% trans %}Modification du profil{% endtrans %}
+{% endblock %}
+{% block content %}
+	{% include '/profile/profile-nav.html.twig' %}
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
+	{% for message in app.flashes('message')%}
+		<div class='alert alert-success'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes('warning')%}
+		<div class='alert alert-warning'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes(' danger')%}
+		<div class=' alert alert-danger'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes('error') %}
+		<div class="col-xs4">
+			<div class="p-3 my-2 rounded-2 success">{{message}}</div>
+		</div>
+	{% endfor %}
+
+	<div class="container-fluid padding">
+		<div class="row  welcome text-center">
+			<div class="col-12 ">
+				<h2 class="identite">{% trans %}Modification du profil{% endtrans %}</h2>
+			</div>
+		</div>
+	</div>
+	<div class="container " id="login">
+		<div class="row px-3" id="from">
+			<div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+				<div class="img-left-register d-none d-md-flex"></div>
+				<div class="card-body">
+
+
+					{{ form_start (form, {'attr': {'novalidate' : 'novalidate'}}) }}
+					<div class="form-input">
+
+						{{ form_row(form.nom)}}
+
+					</div>
+					<div class="form-input">
+
+						{{ form_row(form.prenom) }}
+					</div>
+					<div class="form-input">
+
+						{{ form_row(form.email) }}
+					</div>
+
+
+					<div class="mb-3 login">
+						<button type="submit" id='register'>
+							{% trans %}Mettre à jour{% endtrans %}
+						</button>
+					</div>
+					<div class="text-center mb-2">
+						{% trans %}Retour a la page login{% endtrans %}
+						<a href="{{path('app_login')}}" class="register-link">
+							{% trans %}connexion{% endtrans %}
+						</a>
+					</div>
+					{{ form_end(form) }}
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}

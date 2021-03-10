@@ -1,0 +1,77 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+	{% trans %}Créer Un Nouveau Compte{% endtrans %}
+{% endblock %}
+{% block  carousel %}{% endblock %}
+{% block content %}
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
+	{% for message in app.flashes('message')%}
+		<div class='alert alert-success'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes('warning')%}
+		<div class='alert alert-warning'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes(' danger')%}
+		<div class=' alert alert-danger'>{{message}}</div>
+	{% endfor %}
+
+	<div class="container " id="login">
+		<div class="row px-3">
+			<div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+				<div class="img-left-register d-none d-md-flex"></div>
+
+				<div class="card-body" id="form">
+					<h4 class="title text-center mt-4">
+						{% trans %}Créer Un Nouveau Compte{% endtrans %}
+					</h4>
+
+
+					{{ form_start (registrationForm, {'attr': {'novalidate' : 'novalidate'}}) }}
+					<div class="form-input">
+
+						{{ form_row(registrationForm.nom)}}
+
+					</div>
+					<div class="form-input">
+
+						{{ form_row(registrationForm.prenom) }}
+					</div>
+					<div class="form-input">
+
+						{{ form_row(registrationForm.email) }}
+					</div>
+					<div class="form-input">
+
+						{{ form_row(registrationForm.principaleAdresse) }}
+					</div>
+					<div class="form-input">
+
+						{{ form_row(registrationForm.plainPassword, {
+                        label: 'Password' 
+                         }) }}
+					</div>
+					<div class="mb-3 login">
+						<button type="submit" id='register'>
+							{% trans %}S'inscrire{% endtrans %}
+						</button>
+					</div>
+
+					{{ form_row(registrationForm.AccepterLesTermes) }}
+					<hr class="my-4">
+
+					<div class="text-center mb-2">
+						{% trans %}Vous êtes déjà membre{% endtrans %}
+						<a href="{{path('app_login')}}" class="register-link">
+							{% trans %}connexion{% endtrans %}
+						</a>
+					</div>
+					{{ form_end(registrationForm) }}
+
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

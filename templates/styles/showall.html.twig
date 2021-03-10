@@ -1,0 +1,52 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+	styles
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<h1>
+			organiser les styles
+		</h1>
+		<h4 class='supr'>
+			<a href="{{ path('style-create') }}">Ajoute Une Style</a>
+		</h4>
+
+		<table class="table thead-dark">
+			<thead class="thead-dark">
+				<tr>
+					<th>
+						<h3>Nom Style<h3></th>
+							<th>
+								<h3>Action</h3>
+							</th>
+						</tr>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for style in styles %}
+					<tr>
+						<td>
+							<h3>
+								{{ style.styleNom  }}
+							</h3>
+						</td>
+						{% if is_granted('ROLE_ADMIN') %}
+							<td class='supr'>
+								<a
+									href="{{ path('categorie-delete', {'id': style.id}) }}" onclick="return confirm('are you sure that you want to delete this categorie')">
+									{#onclick pour affiche une alert#}
+									Supprimer
+								</a>
+								<a href="{{ path('categorie-update', {'id': style.id}) }}">
+									Éditer
+								</a>
+							</td>
+						{% endif %}
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endblock %}

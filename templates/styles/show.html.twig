@@ -1,0 +1,97 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+	{{style.styleNom}}
+{% endblock %}
+{%  block carousel %}{% endblock %}
+{% block content %}
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
+	{% for message in app.flashes('message')%}
+		<div class='alert alert-success'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes('warning')%}
+		<div class='alert alert-warning'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes(' danger')%}
+		<div class=' alert alert-danger'>{{message}}</div>
+	{% endfor %}
+
+	<div class="container-fluid padding mt-2 text-center">
+		<div class=" banner fo">
+			<h1>
+				<a class="banner-title{{style.id}}">
+					{{style.styleNom}}
+				</a>
+			</h1>
+		</div>
+	</div>
+
+
+	<div class="container">
+		<section class="row">
+			{% if style.articles.key is  same as null %}
+				<div class="container-fluid padding">
+					<div class="row welcome text-center">
+						<div class="container-b">
+							<p class="fo">{% trans %}Aucun article publié pour le moment{% endtrans %}</p>
+						</div>
+
+					</div>
+					<div class="row text-center">
+						<center>
+							<a class="register-link" href="{{path ('filter')}}">{% trans %}Continuer vos achats{% endtrans %}</a>
+						</center>
+					</div>
+				</div>
+			{% else %}
+				{% for article in style.articles %}
+					<article class="col-lg-3 col-md-4 col-sm-6">
+						<div class="product-grid">
+							<div class="product-image">
+								<a href="{{path('article', {'id': article.id})}}">
+									<img class="pic-1" src="{{ asset ('/images/attachments/' ~ article.attachments[0].image )}}" alt="{{article.imageAlt}}">
+									<img class="pic-2" src="{{ asset ('/images/attachments/' ~ article.attachments[1].image)}}" alt="{{article.imageAlt}}">
+
+
+								</a>
+								<ul class="social text-center">
+									<li>
+										<a href="{{path('article', {'id': article.id})}}" data-tip="Quick View">
+											<i class="fa fa-search"></i>
+										</a>
+									</li>
+
+
+								</ul>
+								<span class="product-new-label" class="product-new-label ">{{article.categorie}}</span>
+								<span class="product-discount-label">{{article.marques}}</span>
+							</div>
+
+							<div class="product-content">
+								<h3 class="title">
+									<a href="{{path('article', {'id': article.id})}}">{{article.nom}}</a>
+
+								</h3>
+								<a href="#" class="categ">{% trans %}Pour
+									{% endtrans %}:
+									{{article.categorie}}</a>
+								<div class="price">{{article.prix }},00€
+
+								</div>
+								<button class="add-to-cart" href="{{path('ajouter', {'id': article.id})}}">{% trans %}Ajouter au panier{% endtrans %}</button>
+							</div>
+						</div>
+					</article>
+
+				{% endfor %}
+			{% endif %}
+		</section>
+		<div class="row">
+			<div class=" col-md-12  col-12  pagination">
+
+				<div>{{ knp_pagination_render (articles)}}</div>
+			</div>
+		</div>
+	{% endblock %}

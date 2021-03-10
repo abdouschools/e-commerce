@@ -1,0 +1,93 @@
+{% extends "layout.html.twig" %}
+{% block title %}
+	{% trans %}Modification du mot de passe
+	{% endtrans %}
+{% endblock %}
+
+{% block content %}
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
+	{% for message in app.flashes('message')%}
+		<div class='alert alert-success'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes('warning')%}
+		<div class='alert alert-warning'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes(' danger')%}
+		<div class=' alert alert-danger'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes('error') %}
+		<div class="col-xs4">
+			<div class="p-3 my-2 rounded-2 success">{{message}}</div>
+		</div>
+	{% endfor %}
+	{% include '/profile/profile-nav.html.twig' %}
+	<div class="container-fluid padding">
+		<div class="row  welcome text-center">
+			<div class="col-12 " id="form">
+				<h3 class="identite">{% trans %}Modification du mot de passe
+					{% endtrans %}</h3>
+
+				<p>{% trans %}Veuillez saisir un nouveau mot de passe{% endtrans %}
+					{{ app.user.prenom }}
+					{{ app.user.nom }}
+				</p>
+			</div>
+		</div>
+	</div>
+
+	{# <form method="post">
+																																																												<div class="form-field">
+																																																													<label for="pass1">Mot de passe</label>
+																																																													<input type="password" id="pass1" name="pass1" class="form-control">
+																																																												</div>
+																																																								
+																																																												<div class="form-field">
+																																																													<label for="pass">Mot de passe</label>
+																																																													<input type="password" id="pass" name="pass" class="form-control">
+																																																												</div>
+																																																												<div class="form-field">
+																																																													<label for="pass2">Confirmer le mot de passe</label>
+																																																													<input type="password" id="pass2" name="pass2" class="form-control">
+																																																												</div>
+																																																												<button class="btn blue" type="submit">Valider</button>
+																																																								
+																																																											</form> #}
+	<div class="container " id="login">
+		<div class="row px-3">
+			<div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+				<div class="img-left-register d-none d-md-flex"></div>
+				<div class="card-body">
+
+
+					{{ form_start (form, {'attr': {'novalidate' : 'novalidate'}}) }}
+					<div class="form-input">
+
+						{{ form_row(form.password)}}
+
+					</div>
+					<div class="form-input">
+
+						{{ form_row(form.plainPassword) }}
+					</div>
+
+
+					<div class="mb-3 login">
+						<button type="submit" id='register'>
+							{% trans %}Mettre à jour{% endtrans %}
+						</button>
+					</div>
+					<div class="text-center mb-2">
+						{% trans %}Retour a la page login{% endtrans %}
+						<a href="{{path('app_login')}}" class="register-link">
+							{% trans %}connexion{% endtrans %}
+						</a>
+					</div>
+					{{ form_end(form) }}
+
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

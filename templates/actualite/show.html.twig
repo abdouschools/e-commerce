@@ -1,0 +1,83 @@
+{% extends "layout.html.twig" %}
+{% block meta %}
+	<meta name="description " content="{{actualite.accrouche | raw }}">
+{% endblock %}
+
+{% block title %}
+	{% trans %}Actualite{% endtrans %}
+{% endblock %}
+
+{% block content %}
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
+	{% for message in app.flashes('message')%}
+		<div class='alert alert-success'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes('warning')%}
+		<div class='alert alert-warning'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes(' danger')%}
+		<div class=' alert alert-danger'>{{message}}</div>
+	{% endfor %}
+	{% if actualite is  not same as null %}
+		<article class="container-ac">
+			<section class="row ">
+				<div class="col-sm-10 col-10 col-md-5 row-product">
+					<div class="carousel-inner caro-product">
+						<div id="item-produit" class="carousel-item active  " class="carousel-item  ">
+							<div class="product-image">
+
+								<figure><img class="image-zoom" src="{{ asset ('/images/actualite/' ~ actualite.image ) }}" alt="{{actualite.alt}}"></figure>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="col-sm-10 col-10 col-md-6  row-product  actualite-tit-acr">
+					<div class="row pt-2">
+						<div class="col-12 text-center  ">
+							<h1 class="actualite-h1">{{actualite.titre}}</h1>
+						</div>
+					</div>
+					<div class="row pt-2">
+						<div class="col-12 text-center  ">
+							<h4 class='fofo'>{{actualite.accrouche | raw}}</h4>
+							<p id="sambre">
+								{% trans %}Publie{% endtrans %}
+								{% trans %}Le{% endtrans %}
+								:{{actualite.datecration | date("d/m/y H:i")}}</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="row ">
+				<div class="col-sm-10 col-10 col-md-10 row-product ">
+					<div class="carousel-inner row-product">
+
+						<div class="act-contenue">{{actualite.contenue | raw}}
+
+
+						</div>
+
+
+					</div>
+				</div>
+
+
+			</section>
+
+
+		</article>
+	{% else %}
+		<aside class="container-fluid padding">
+			<div class="row welcome text-center">
+				<div class="col-12 ">
+					<h1 class='display-4'>{% trans %}Pas d'article Pour Le Moment{% endtrans %}</h1>
+					<hr>
+				</div>
+			</div>
+		</aside>
+	{% endif %}
+
+{% endblock %}

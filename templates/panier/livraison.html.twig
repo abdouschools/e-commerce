@@ -1,0 +1,244 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+	{% trans %}Ajoute Une Address{% endtrans %}
+{% endblock %}
+{% block carousel %}{% endblock %}
+
+{% block content %}
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
+	{% for message in app.flashes('message')%}
+		<div class='alert alert-success'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes('warning')%}
+		<div class='alert alert-warning'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes(' danger')%}
+		<div class=' alert alert-danger'>{{message}}</div>
+	{% endfor %}
+	<div class="container-livraison ">
+
+		{% if utilisateur.utilisateursAdresses | length == 0 %}
+			<article class="row px-3">
+				<div class="col-lg-10 col-xl-10 col-md-10 card flex-row mx-auto px-0">
+					<div class="img-left-adresse d-none d-md-flex"></div>
+
+					<div class="card-body">
+						<h4 class="title text-center mt-4">
+							{% trans %}Ajoute Une Address{% endtrans %}
+						</h4>
+
+
+						{{ form_start (form, {'attr': {'novalidate' : 'novalidate'}}) }}
+						<div class="form-input">
+
+							{{ form_row(form.nom)}}
+
+						</div>
+						<div class="form-input">
+
+							{{ form_row(form.prenom) }}
+						</div>
+						<div class="form-input">
+
+							{{ form_row(form.telephone) }}
+						</div>
+						<div class="form-input">
+
+							{{ form_row(form.adresse) }}
+						</div>
+						<div class="form-input">
+
+							{{ form_row(form.cp) }}
+						</div>
+						<div class="form-input">
+
+							{{ form_row(form.ville) }}
+						</div>
+						<div class="form-input">
+
+							{{ form_row(form.pays) }}
+						</div>
+						<div class="form-input">
+
+							{{ form_row(form.complement) }}
+						</div>
+						<div class="mb-3 login">
+							<button type="submit" id='register'>
+								{% trans %}Ajoute{% endtrans %}
+							</button>
+						</div>
+
+
+						<hr class="my-4">
+
+						{{ form_end(form) }}
+
+					</div>
+				</div>
+			</article>
+		{% elseif utilisateur.utilisateursAdresses | length != 0  %}
+			<article class="row px-3">
+				<section class="col-lg-7 col-xl-7 col-md-8 col-sm-12 card flex-row mx-auto px-0">
+					<div class="img-left-adresse d-none d-md-flex"></div>
+
+					<div class="card-body">
+						<h4 class="title text-center mt-4">
+							{% trans %}Ajoute Une Address{% endtrans %}
+						</h4>
+
+						<div class="row">
+							<div class="col-md-6">
+								{{ form_start (form, {'attr': {'novalidate' : 'novalidate'}}) }}
+								<div class="form-input">
+
+									{{ form_row(form.nom)}}
+
+								</div>
+								<div class="form-input">
+
+									{{ form_row(form.prenom) }}
+								</div>
+								<div class="form-input">
+
+									{{ form_row(form.telephone) }}
+								</div>
+
+							</div>
+							<div class="col-md-6">
+								<div class="form-input">
+
+									{{ form_row(form.cp) }}
+								</div>
+								<div class="form-input">
+
+									{{ form_row(form.ville) }}
+								</div>
+								<div class="form-input">
+
+									{{ form_row(form.pays) }}
+								</div>
+
+							</div>
+						</div>
+						<div class="form-input">
+
+							{{ form_row(form.adresse) }}
+						</div>
+						<div class="form-input">
+
+							{{ form_row(form.complement) }}
+						</div>
+
+						<div class="mb-3 login">
+							<button type="submit" id='register'>
+								{% trans %}Ajoute{% endtrans %}
+							</button>
+						</div>
+
+
+						<hr class="my-4">
+
+						{{ form_end(form) }}
+
+					</div>
+				</section>
+				<section class="col-lg-4 col-xl-4 col-md-4 col-sm-12  mx-auto px-0">
+
+					<div class="row">
+						<div class="col-12 mt-4">
+							<form action="{{path ('validation')}} " method="POST">
+								<h4 class="title text-center ">
+									{% trans %}Adresse de livraison{% endtrans %}
+								</h4>
+								<div class="address m-2">
+									<label class="radio">
+										<input type="radio" name="livraison" value="{{app.user.principaleAdresse.id}}">
+										<span class="checkmark"></span>
+										{{app.user.principaleAdresse.adresse}}-{{app.user.principaleAdresse.complement}}
+										<p>{{app.user.principaleAdresse.ville}}{{app.user.principaleAdresse.cp}}
+											{{app.user.principaleAdresse.pays}}-</p>
+
+										<p>Chez :{{app.user.principaleAdresse.nom}}
+											{{app.user.principaleAdresse.prenom}}
+
+										</p>
+										<br>
+									</label>
+								</div>
+								{% for adresse in utilisateur.utilisateursAdresses %}
+									<div class="address m-2">
+										<label class="radio">
+											<input type="radio" name="livraison" value="{{adresse.id}}" {% if loop.index0 == 0 %} checked="checked" {% endif %}>
+											<span class="checkmark"></span>
+											{{adresse.adresse}}-{{adresse.complement}}
+											<p>{{adresse.ville}}
+												{{adresse.cp}}
+												{{adresse.pays}}</p>
+
+											<p>Chez :{{adresse.nom}}
+												{{adresse.prenom}}
+												<a href="{{ path ('livraisonAdresseSuppresion', {'id': adresse.id}) }}">
+													<i class="fas fa-trash-alt"></i>
+												</a>
+											</p>
+											<br>
+										</label>
+									</div>
+								{% endfor %}
+								<h4 class="title text-center ">
+									{% trans %}Adresse de Facturation{% endtrans %}
+								</h4>
+								<div class="address m-2">
+									<label class="radio">
+										<input type="radio" name="facturation" value="{{app.user.principaleAdresse.id}}">
+										<span class="checkmark"></span>
+										{{app.user.principaleAdresse.adresse}}-{{app.user.principaleAdresse.complement}}
+										<p>{{app.user.principaleAdresse.ville}}
+											{{app.user.principaleAdresse.cp}}
+											{{app.user.principaleAdresse.pays}}</p>
+
+										<p>Chez :{{app.user.principaleAdresse.nom}}
+											{{app.user.principaleAdresse.prenom}}
+
+										</p>
+										<br>
+									</label>
+								</div>
+								{% for adresse in utilisateur.utilisateursAdresses %}
+									<div class="address m-2">
+										<label class="radio">
+											<input type="radio" name="facturation" value="{{adresse.id}}" {% if loop.index0 == 0 %} checked="checked" {% endif %}>
+											<span class="checkmark"></span>
+											{{adresse.adresse}}-{{adresse.complement}}
+											<p>{{adresse.ville}}
+												{{adresse.cp}}
+												{{adresse.pays}}</p>
+
+											<p>Chez :{{adresse.nom}}
+												{{adresse.prenom}}
+												<a href="{{ path ('livraisonAdresseSuppresion', {'id': adresse.id}) }}">
+													<i class="fas fa-trash-alt"></i>
+												</a>
+											</p>
+											<br>
+										</label>
+									</div>
+								{% endfor %}
+								<div class="mb-3 login">
+									<button type="submit" id='register'>
+										{% trans %}Valider mes adresses{% endtrans %}
+									</button>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</section>
+			</artcile>
+		{% endif %}
+	</div>
+
+{% endblock %}

@@ -1,0 +1,113 @@
+{% extends "base-pdf.html.twig" %}
+
+
+{% block body %}
+	<div class="container" style="margin : 0px ; padding : 0px">
+		<h1 style='color :rgb(70, 201, 66) ; margin-left : +40%'>Facture
+			{{facture.reference}}</h1>
+
+		<h2>Cordonnes :</h2>
+
+		<p>Nom :
+			{{facture.commande.facturation.prenom}}
+		</p>
+		<p>Prenom :
+			{{facture.commande.facturation.nom}}</p>
+		<p>Telephone :
+			{{facture.commande.facturation.telephone}}</p>
+		<p>Adresse de facturation:
+			{{facture.commande.facturation.adresse}}-{{facture.commande.facturation.complement}}-{{facture.commande.facturation.vilee}}-{{facture.commande.facturation.cp}}-{{facture.commande.facturation.pays}}</p>
+		<p>Adresse de livraison:
+			{{facture.commande.facturation.nom}}-{{facture.commande.facturation.prenom}}-{{facture.commande.facturation.adresse}}-{{facture.commande.facturation.complement}}-{{facture.commande.facturation.vilee}}-{{facture.commande.facturation.cp}}-{{facture.commande.facturation.pays}}-{{facture.commande.facturation.telephone}}</p>
+
+
+		<table style=' padding :1rem '>
+			<thead style='border : 1px solid rgb(248, 130, 20); text-align : center ; align-items: center  '>
+				<tr>
+					<th scope="col" style='border-right : 1px solid rgb(248, 130, 20) ; padding :1rem '>Réference</th>
+
+					<th scope="col" style='border-right : 1px solid rgb(248, 130, 20) ;padding :1rem '>Date</th>
+					<th scope="col" style='padding :1rem '>Prix TTC</th>
+
+				</tr>
+
+			</thead>
+			<tbody style='border : 1px solid rgb(248, 130, 20); text-align : center ; align-items: center '>
+
+				<tr>
+					<td style='border-right : 1px solid rgb(248, 130, 20)  ; padding :1rem'>
+						{{facture.reference}}</td>
+
+					<td style='border-right : 1px solid rgb(248, 130, 20)  ;  padding :1rem'>{{facture.date | date ('d/m/Y h:m:s ')}}</td>
+					<td style=' padding :1rem'>{{facture.commande.prixTTC}}
+						€</td>
+
+				</tr>
+
+			</tbody>
+		</table>
+
+		<table style=' padding :1rem '>
+			<thead style='border : 1px solid rgb(248, 130, 20); text-align : center ; align-items: center  '>
+				<tr>
+					<th scope="col" style='border-right : 1px solid rgb(248, 130, 20) ; padding :1rem '>designation</th>
+					<th scope="col" style='border-right : 1px solid rgb(248, 130, 20) ; padding :1rem '>quantite</th>
+					<th scope="col" style='border-right : 1px solid rgb(248, 130, 20) ; padding :1rem '>p.u net</th>
+					<th scope="col" style='border-right : 1px solid rgb(248, 130, 20) ; padding :1rem '>montan ht
+					</th>
+					<th scope="col" style=' padding :1rem '>montant ttc</th>
+				</tr>
+			</thead>
+			<tbody style='border : 1px solid rgb(248, 130, 20); text-align : center ; align-items: center '>
+				{% for produit in facture.commande.produit %}
+					<tr scope="col">
+						<td scope="col" style='border-right : 1px solid rgb(248, 130, 20) ; padding :1rem '>{{produit.reference}}</td>
+						<td scope="col" style='border-right : 1px solid rgb(248, 130, 20) ; padding :1rem '>{{produit.quantite}}</td>
+						<td scope="col" style='border-right : 1px solid rgb(248, 130, 20) ; padding :1rem '>{{produit.prixHT}}
+							€</td>
+						<td scope="col" style='border-right : 1px solid rgb(248, 130, 20) ; padding :1rem '>{{produit.prixHT * produit.quantite}}
+							€
+						</td>
+						<td scope="col" style=' padding :1rem '>{{produit.prixTTC * produit.quantite}}
+							€</td>
+
+					</tr>
+				{% endfor %}
+			</tbody>
+
+		</table>
+		<table style=' padding :1rem '>
+			<thead style='border : 1px solid rgb(248, 130, 20); text-align : center ; align-items: center  '>
+				<tr>
+					<th scope="col" style='border-right : 1px solid rgb(248, 130, 20) ; padding :1rem '>totalht</th>
+					<td scope="col" style=' padding :1rem '>{{facture.commande.prixHt}}
+						€</td>
+				</tr>
+			</thead>
+			<tbody style='border : 1px solid rgb(248, 130, 20); text-align : center ; align-items: center '>
+				{% for tva in facture.commande.tva %}
+					<tr scope="col">
+						<th scope="col" style='border-right : 1px solid rgb(248, 130, 20) ; padding :1rem '>tva</th>
+						<td scope="col" style=' padding :1rem '>{{tva}}
+							€</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+			<tfoot style='border : 1px solid rgb(248, 130, 20); text-align : center ; align-items: center '>
+				<tr scope="col">
+					<th scope="col" style='border-right : 1px solid rgb(248, 130, 20) ; padding :1rem '>totalht</th>
+					<td scope="col" style=' padding :1rem '>{{facture.commande.prixTTC}}
+						€</td>
+				</tr>
+			</tfoot>
+		</table>
+		<h4>Nous Contacter</h4>
+		<p>Telephone : 01 44 09 60 03 /04 28 69 00 79</p>
+		<h4>Nous Magasins :</h4>
+		<p>-17 Rue des Lilas , 77500 Chelles, France</p>
+		<p>-7 Rue du Quinconce 77200, Torcy , France</p>
+		<p>-61b Rue de la Folie Regnault, 75011 Paris, France</p>
+		<p>-25 Rue de la Liberté, 93160 Noisy-le-Grand, France</p>
+
+	</div>
+{% endblock %}

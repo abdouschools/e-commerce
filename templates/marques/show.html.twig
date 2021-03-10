@@ -1,0 +1,94 @@
+{% extends "layout.html.twig" %}
+{% block meta %}
+	<meta name="description " content="{{marques.nomMarque}} lunettes :lunettes contre la lumiere bleue, de soleil et de vue design directement de l'usine au consommateurs. trouvez votre style ">
+{% endblock %}
+{% block title %}
+	{% trans %}Marques{% endtrans %}
+{% endblock %}
+{% block carousel %}
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
+	{% for message in app.flashes('message')%}
+		<div class='alert alert-success'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes('warning')%}
+		<div class='alert alert-warning'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes(' danger')%}
+		<div class=' alert alert-danger'>{{message}}</div>
+	{% endfor %}
+	<div class="container-mar">
+		<div class="row">
+			<div class="img-marque" style="background:  url({{ asset ('/image/mar-ca' ~ marques.id ~'.jpg' )}}) center "></div>
+		</div>
+
+	</div>
+
+{% endblock %}
+{% block content %}
+	{{ render(controller(
+        'App\\Controller\\MarquesController::showalll'
+    )) }}
+	<div class="col-md-8 " id="sticky">
+		<div class="row">
+			{% if marques.article.key is  not same as null %}
+				{% for article in marques.article %}
+					<div class="  col-md-4 col-sm-6 ">
+						<article class="product-grid">
+							<section class="product-image">
+								<a href="{{path('article', {'slug': article.slug})}}">
+									<figure><img class="pic-1" src="{{ asset ('/images/attachments/' ~ article.attachments[0].image )}}" alt="{{article.imageAlt}}"></figure>
+									<figure><img class="pic-2" src="{{ asset ('/images/attachments/' ~ article.attachments[1].image)}}" alt="{{article.imageAlt}}"></figure>
+
+
+								</a>
+								<ul class="social ">
+									<li>
+										<a href="{{path('article', {'slug': article.slug})}}" data-tip="Quick View">
+											<i class="fa fa-search"></i>
+										</a>
+									</li>
+
+
+								</ul>
+								<span class="product-new-label">{{article.style}}</span>
+								<span class="product-discount-label">{{article.marques}}</span>
+							</section>
+
+							<section class="product-content">
+								<h3 class="title">
+									<a href="{{path('article', {'slug': article.slug})}}">{{article.nom}}</a>
+
+								</h3>
+								<a href="#" class="categ">{% trans %}Pour
+									{% endtrans %}:
+									{{article.categorie}}</a>
+								<div class="price">{{article.prix  }},00€
+
+								</div>
+								<a class="add-to-cart" href="{{ path('ajouter', {'id': article.id}) }}">{% trans %}Ajouter au panier{% endtrans %}</a>
+							</section>
+						</article>
+
+					</div>
+				{% endfor %}
+			{% else %}
+				<h1 class="col-12 text-center">Aucan article aves c'est cretaire</h1>
+			{% endif %}
+		</div>
+		<div class="row">
+			<div class=" col-md-12  col-12  pagination">
+
+				<div>{{ knp_pagination_render (articles)}}</div>
+
+
+			</div>
+		</div>
+	</div>
+</div></div><div class="container-mar">
+<div class="row">
+	<div class="col-12">
+		<div class="img-marque" style="background:  url({{ asset ('/image/mar-ca' ~ marques.id ~'.jpg' )}}) center "></div>
+	</div>
+</div></div>{% endblock %}

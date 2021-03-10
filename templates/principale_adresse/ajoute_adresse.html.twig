@@ -1,0 +1,111 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+	{% if app.user.principaleAdresse is not same as null %}
+		<h4 class="title text-center mt-4">
+			{% trans %}Modifier Adresse{% endtrans %}
+
+		</h4>
+	{% else %}
+		<h4 class="title text-center mt-4">
+			{% trans %}Ajouter une Adresse{% endtrans %}
+
+		</h4>
+	{% endif %}
+
+{% endblock %}
+{% block content %}
+	{% for message in  app.flashes ('message') %}
+		<div class="alert alert-success">{{ message }}</div>
+	{% endfor %}
+	{% for message in  app.flashes ('success') %}
+		<div class="alert alert-success">{{ message }}</div>
+	{% endfor %}
+	{% for message in  app.flashes ('error') %}
+		<div class="alert alert-success">{{ message }}</div>
+	{% endfor %}
+
+	{% include '/profile/profile-nav.html.twig' %}
+
+	<div class="container " id="login">
+		<div class="row px-3">
+			<div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+				<div class="img-left-register d-none d-md-flex"></div>
+
+				<div class="card-body" id="form">
+					{% if app.user.principaleAdresse is not same as null %}
+						<h4 class="title text-center mt-4">
+							{% trans %}Modifier Adresse{% endtrans %}
+
+						</h4>
+					{% else %}
+						<h4 class="title text-center mt-4">
+							{% trans %}Ajouter une Adresse{% endtrans %}
+
+						</h4>
+					{% endif %}
+
+
+					{{ form_start (form, {'attr': {'novalidate' : 'novalidate'}}) }}
+					<div class="form-input">
+
+						{{ form_row(form.nom)}}
+
+					</div>
+					<div class="form-input">
+
+						{{ form_row(form.prenom)}}
+
+					</div>
+					<div class="form-input">
+
+						{{ form_row(form.telephone) }}
+					</div>
+					<div class="form-input">
+
+						{{ form_row(form.adresse)}}
+
+					</div>
+					<div class="form-input">
+
+						{{ form_row(form.complement) }}
+					</div>
+					<div class="form-input">
+
+						{{ form_row(form.ville) }}
+					</div>
+					<div class="form-input">
+
+						{{ form_row(form.cp) }}
+					</div>
+					<div class="form-input">
+
+						{{ form_row(form.pays) }}
+					</div>
+
+					<div class="mb-3 login">
+						{% if app.user.principaleAdresse is not same as null %}
+							<button type="submit" id='register'>
+								{% trans %}Modifier{% endtrans %}
+							</button>
+						{% else %}
+							<button type="submit" id='register'>
+								{% trans %}Ajouter{% endtrans %}
+							</button>
+						{% endif %}
+					</div>
+
+
+					<div class="text-center mb-2">
+						{% trans %}Retour{% endtrans %}
+						<a href="{{path('app_profile')}}" class="register-link">
+							{% trans %}Profile{% endtrans %}
+						</a>
+					</div>
+					{{ form_end(form) }}
+
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

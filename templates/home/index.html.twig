@@ -1,0 +1,147 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+	Home
+{% endblock %}
+
+{% block content %}
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
+	{% for message in app.flashes('message')%}
+		<div class='alert alert-success'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes('warning')%}
+		<div class='alert alert-warning'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes(' danger')%}
+		<div class=' alert alert-danger'>{{message}}</div>
+	{% endfor %}
+	<section class="container-fluid padding">
+		<div class="row welcome text-center">
+			<div class="col-12 ">
+				<h1 class='display-4'>{% trans %}Styles multiples{% endtrans %}</h1>
+				<hr>
+			</div>
+		</div>
+	</section>
+
+	<section class="row kind ">
+		{% for style in styles %}
+			<div class="col-xl-2 col-md-4 col-sm-6 col-4  center ">
+				<div class=" banner">
+					<a href='{{ path('style-show', {'id': style.id}) }}' class="banner-title{{style.id}}">
+						{{style.styleNom}}
+					</a>
+				</div>
+			</div>
+		{% endfor %}
+
+	</section>
+	<section class="container-fluid padding">
+		<div class="row welcome text-center">
+			<div class="col-12 ">
+				<h1 class='display-4'>{% trans %}Pour Tous Les Sexes Et Tous Les Ages{% endtrans %}</h1>
+				<hr>
+			</div>
+		</div>
+	</section>
+
+	<section class="row justify-content-around">
+		<div class="col-lg-2 col-md-2 col-sm-6 col-5 rounded-circle   gender gender1" onclick="location.href='{{ path('categorie-show', {'id': mixte.id}) }}'"></div>
+		<div class="col-lg-2 col-md-2 col-sm-6  col-5 rounded-circle   gender gender2" onclick="location.href='{{ path('categorie-show', {'id': enfant.id}) }}'"></div>
+		<div class="col-lg-2 col-md-2 col-sm-6 col-5 rounded-circle gender gender3" onclick="location.href='{{ path('categorie-show', {'id':femme.id}) }}'"></div>
+		<div class="col-lg-2 col-md-2 col-sm-6  col-5 rounded-circle  gender gender4" onclick="location.href='{{ path('categorie-show', {'id': homme.id}) }}'"></div>
+	</section>
+
+	<section class="container-fluid padding">
+		<div class="row welcome text-center">
+			<article class="col-12">
+				<h1 class='display-4'>{% trans %}Nouveautés{% endtrans %}</h1>
+				<hr>
+				<p>{% trans %}Offrez-vous les dernières nouveautés de lunettes de vue parmi toutes les collections de marques reconnues.										Chaque modèle de Nouveauté lunette de vue respecte les critères de qualité et de performances que vous en exigez. Les modèles OFP01811 et MF1804 figurent parmi les plus connus du grand public. À savoir que la Nouveauté lunette de vue s’adapte à tous les types de verres.{% endtrans %}</p>
+			</article>
+		</div>
+	</section>
+	<section class="container">
+		<div class="row">
+			{% for article in articles %}
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<article class="product-grid">
+						<section class="product-image">
+							<a href="{{ path('article', {'slug': article.slug}) }}">
+								<figure><img class="pic-1" src="{{ asset ('/images/attachments/' ~ article.attachments[0].image )}}" alt="{{article.imageAlt}}"></figure>
+								<figure><img class="pic-2" src="{{ asset ('/images/attachments/' ~ article.attachments[1].image)}}" alt="{{article.imageAlt}}"></figure>
+
+
+							</a>
+							<ul class="social text-center">
+								<li>
+									<a href="{{ path('article', {'slug': article.slug}) }}" data-tip="Quick View">
+										<i class="fa fa-search"></i>
+									</a>
+								</li>
+
+
+							</ul>
+							<span class="product-new-label">{% trans %}Nouveau{% endtrans %}</span>
+							<span class="product-discount-label">{{article.marques}}</span>
+						</section>
+
+						<section class="product-content">
+							<h3 class="title">
+								<a href="{{ path('article', {'slug': article.slug}) }}">{{article.nom}}</a>
+
+							</h3>
+							<a href="#" class="categ">{% trans %}Pour
+								{% endtrans %}:
+								{{article.categorie}}</a>
+							<div class="price">{{article.prix  }},00€
+
+							</div>
+							<a class="add-to-cart" href="{{ path('ajouter', {'id': article.id}) }}">{% trans %}Ajouter au panier{% endtrans %}</a>
+						</section>
+					</article>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+	<section class="container-fluid padding">
+		<div class="row welcome text-center">
+			<div class="container-b">
+				<a href="{{path ('filter')}}" class="btn btn1 rounded">{% trans %}Voire Plus de Produits{% endtrans %}</a>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="container-fluid padding">
+		<div class="row welcome text-center">
+			<div class="col-12 ">
+				<h1 class='display-4'>{% trans %}Actualite{% endtrans %}</h1>
+				<hr>
+			</div>
+		</div>
+	</section>
+	<section class="site_container">
+		<article class="article-container">
+			{% for actualite in actualite %}
+				<article class="article-card">
+					<figure class="article-image">
+						<img class="ar-img" src="{{ asset ('/images/actualite/' ~ actualite.image ) | imagine_filter('article1') }}" alt="{{actualite.alt}}">
+					</figure>
+					<div class="article-content">
+						<a href="" class="cart-categorie">Beauty Eyes</a>
+						<h3 class="card-title">{{actualite.titre}}</h3>
+						<p class="card-excerpt ">
+							<font color="#6b82a7">{{actualite.accrouche |  slice(0 , 120) | raw }}<a class="lire" href="{{path('actualite-show', {'slug': actualite.slug})}}">...Lire La Suite</a>
+							</font>
+						</p>
+					</div>
+
+				</article>
+			{% endfor %}
+
+		</article>
+	</section>
+{% endblock %}

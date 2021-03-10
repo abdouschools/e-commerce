@@ -1,0 +1,210 @@
+{% extends "layout.html.twig" %}
+{% block meta %}
+	<meta name="description " content="{{categories.nomCategorie}} lunettes : lunettes contre la lumiere bleue, de soleil et de vue design directement de l'usine au consommateurs. trouvez votre style">
+{% endblock %}
+{% block title %}
+	{{categories.nomCategorie}}
+{% endblock %}
+{%  block carousel %}
+
+	<section>
+		<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+				<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="active"></li>
+
+			</ol>
+			{% if categories.nomCategorie is same as 'homme' %}
+				<div class="carousel-inner " data-interval="8000">
+					<div class="carousel-item active">
+						<div class="overlay-image" style=" background-image: url(../image/cat-homme5.jpg)" alt="{{categories.nomCategorie}}-image"></div>
+						<div class="carousel-caption  d-block">
+							<h1>{% trans %}Reyban{% endtrans %}
+							</h1>
+							<button class=" neon ">
+								<a href="http://127.0.0.1:8000/marque-show/1">{% trans %}Consulter{% endtrans %}</a>
+							</button>
+						</div>
+					</div>
+					<div class="carousel-item " data-interval="8000">
+						<div class="overlay-image" style=" background-image: url(../image/cat-homme6.jpg)" alt="{{categories.nomCategorie}}-image"></div>
+						<div class="carousel-caption d-block">
+							<h1>{% trans %}Carrera{% endtrans %}</h1>
+							<button class=" neon">
+								<a href="http://127.0.0.1:8000/marque-show/2">{% trans %}Consulter{% endtrans %}</a>
+							</button>
+						</div>
+					</div>
+
+				</div>
+			{% elseif categories.nomCategorie is same as 'femme' %}
+				<div class="carousel-inner " data-interval="8000">
+					<div class="carousel-item active">
+						<div class="overlay-image" style=" background-image: url(../image/cat-femme1.jpg)" alt="{{categories.nomCategorie}}-image"></div>
+						<div class="carousel-caption  d-block">
+							<h1>{% trans %}Reyban{% endtrans %}
+							</h1>
+							<button class=" neon ">
+								<a href="http://127.0.0.1:8000/marque-show/1">{% trans %}Consulter{% endtrans %}</a>
+							</button>
+						</div>
+					</div>
+					<div class="carousel-item " data-interval="8000">
+						<div class="overlay-image" style=" background-image: url(../image/cat-femme2.jpg)" alt="{{categories.nomCategorie}}-image"></div>
+						<div class="carousel-caption d-block">
+							<h1>{% trans %}Carrera{% endtrans %}</h1>
+							<button class=" neon">
+								<a href="http://127.0.0.1:8000/marque-show/2">{% trans %}Consulter{% endtrans %}</a>
+							</button>
+						</div>
+					</div>
+
+				</div>
+			{% elseif categories.nomCategorie is same as 'mixte' %}
+				<div class="carousel-inner " data-interval="8000">
+					<div class="carousel-item active">
+						<div class="overlay-image" style=" background-image: url(../image/cat-mixte1.jpg)" alt="{{categories.nomCategorie}}-image"></div>
+						<div class="carousel-caption  d-block">
+							<h1>{% trans %}Reyban{% endtrans %}
+							</h1>
+							<button class=" neon ">
+								<a href="http://127.0.0.1:8000/marque-show/1">{% trans %}Consulter{% endtrans %}</a>
+							</button>
+						</div>
+					</div>
+					<div class="carousel-item " data-interval="8000">
+						<div class="overlay-image" style=" background-image: url(../image/cat-mixte2.jpg)" alt="{{categories.nomCategorie}}-image"></div>
+						<div class="carousel-caption d-block">
+							<h1>{% trans %}Carrera{% endtrans %}</h1>
+							<button class=" neon">
+								<a href="http://127.0.0.1:8000/marque-show/2">{% trans %}Consulter{% endtrans %}</a>
+							</button>
+						</div>
+					</div>
+
+				</div>
+			{% elseif categories.nomCategorie is same as 'enfant' %}
+				<div class="carousel-inner " data-interval="8000">
+					<div class="carousel-item active">
+						<div class="overlay-image" style=" background-image: url(../image/cat-enfant1.jpg)" alt="{{categories.nomCategorie}}-image"></div>
+						<div class="carousel-caption  d-block">
+							<h1>{% trans %}Reyban{% endtrans %}
+							</h1>
+							<button class=" neon ">
+								<a href="http://127.0.0.1:8000/marque-show/1">{% trans %}Consulter{% endtrans %}</a>
+							</button>
+						</div>
+					</div>
+					<div class="carousel-item " data-interval="8000">
+						<div class="overlay-image" style=" background-image: url(../image/cat-enfant2.jpg)" alt="{{categories.nomCategorie}}-image"></div>
+						<div class="carousel-caption d-block">
+							<h1>{% trans %}Carrera{% endtrans %}</h1>
+							<button class=" neon">
+								<a href="http://127.0.0.1:8000/marque-show/2">{% trans %}Consulter{% endtrans %}</a>
+							</button>
+						</div>
+					</div>
+
+				</div>
+			{% endif %}
+			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">{% trans %}Previous{% endtrans %}</span>
+			</a>
+			<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">{% trans %}Next{% endtrans %}</span>
+			</a>
+		</div>
+	</section>
+{% endblock %}
+{% block content %}
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
+	{% for message in app.flashes('message')%}
+		<div class='alert alert-success'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes('warning')%}
+		<div class='alert alert-warning'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes(' danger')%}
+		<div class=' alert alert-danger'>{{message}}</div>
+	{% endfor %}
+
+	<div {% if categories.nomCategorie is same as 'homme' %} class="container-fluid padding head-produit-homme mt-2  " {% elseif categories.nomCategorie is same as 'femme' %} class="container-fluid padding head-produit-femme mt-2  " {% elseif categories.nomCategorie is same as 'enfant' %} class="container-fluid padding head-produit-enfant mt-2  " {% elseif categories.nomCategorie is same as 'mixte' %} class="container-fluid padding head-produit-mixte mt-2  " {% endif %}></div>
+	{#<div class="container-fluid padding  mt-2 text-center ">
+																										<h1 {% if categories.nomCategorie is same as 'homme' %} class="product-new-label cat-homme" {% elseif categories.nomCategorie is same as 'femme' %} class="product-new-label cat-femme" {% elseif categories.nomCategorie is same as 'enfant' %} class="product-new-label cat-enfant" {% elseif categories.nomCategorie is same as 'mixte' %} class="product-new-label cat-mixte" {% endif %}>{{categories.nomCategorie}}</h1>
+																									</div>#}
+	<div class="container">
+		{% if categories.articles.key is  same as null %}
+			<div class="container-fluid padding">
+				<div class="row welcome text-center">
+					<div class="container-b">
+						<p class="fo">{% trans %}Aucun article publié pour le moment{% endtrans %}</p>
+					</div>
+
+				</div>
+				<div class="row text-center">
+					<center>
+						<a class="register-link" href="{{path ('filter')}}">{% trans %}Continuer vos achats{% endtrans %}</a>
+					</center>
+				</div>
+			</div>
+		{% else %}
+			<div class="row">
+
+				{% for  article in categories.articles %}
+					<article class="col-lg-3 col-md-4 col-sm-6">
+						<div class="product-grid">
+							<div class="product-image">
+								<a href="{{path('article', {'slug': marque.slug})}}">
+									<figure><img class="pic-1" src="{{ asset ('/images/attachments/' ~ article.attachments[0].image )}}" alt="{{article.imageAlt}}"></figure>
+									<figure><img class="pic-2" src="{{ asset ('/images/attachments/' ~ article.attachments[1].image)}}" alt="{{article.imageAlt}}"></figure>
+
+
+								</a>
+								<ul class="social text-center">
+									<li>
+										<a href="{{path('article', {'slug': marque.slug})}}" data-tip="Quick View">
+											<i class="fa fa-search"></i>
+										</a>
+									</li>
+
+
+								</ul>
+								<span {% if categories.nomCategorie is same as 'homme' %} class="product-new-label new-homme" {% elseif categories.nomCategorie is same as 'femme' %} class="product-new-label new-femme" {% elseif categories.nomCategorie is same as 'enfant' %} class="product-new-label new-enfant" {% elseif categories.nomCategorie is same as 'mixte' %} class="product-new-label " {% endif %}>{{article.style}}</span>
+								<span class="product-discount-label">{{article.marques}}</span>
+							</div>
+
+							<div class="product-content">
+								<h3 class="title">
+									<a href="{{path('article', {'slug': marque.slug})}}">{{article.nom}}</a>
+
+								</h3>
+								<a href="#" class="categ">{% trans %}Pour
+									{% endtrans %}:
+									{{article.categorie}}</a>
+								<div class="price">{{article.prix }},00€
+
+								</div>
+								<a class="add-to-cart" href="{{ path('ajouter', {'id': article.id}) }}">{% trans %}Ajouter au panier{% endtrans %}</a>
+							</div>
+						</div>
+					</article>
+
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+	<div class="row">
+		<div class=" col-md-12  col-12  pagination">
+
+			<div>{{ knp_pagination_render (articles)}}</div>
+
+
+		</div>
+	</div>
+
+
+{% endblock %}

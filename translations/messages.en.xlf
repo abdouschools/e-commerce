@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="VuGTzwp" resname="no style with this number">
+        <source>no style with this number</source>
+        <target>aucune style avec se numero</target>
+      </trans-unit>
+      <trans-unit id="FRqankG" resname="Magasins">
+        <source>Magasins</source>
+        <target>stores</target>
+      </trans-unit>
+      <trans-unit id="vCuOK9b" resname="Espace admin">
+        <source>Espace admin</source>
+        <target>Admin space</target>
+      </trans-unit>
+      <trans-unit id="Ok7Ezbm" resname="Panier">
+        <source>Panier</source>
+        <target>Basket</target>
+      </trans-unit>
+       <trans-unit id="Ok7Ezbs" resname="Langue">
+        <source>Langue</source>
+        <target>Language</target>
+      </trans-unit>
+       <trans-unit id="Ok7Ezbp" resname="Connecte">
+        <source>Connecte</source>
+        <target>Login</target>
+      </trans-unit>
+       <trans-unit id="Ok7Ezba" resname="Nos Lunnetes">
+        <source>Nos Lunnetes</source>
+        <target>Our Products</target>
+      </trans-unit>
+        <trans-unit id="Ok7Ezbv" resname="Nouveau Compte">
+        <source>Nouveau Compte</source>
+        <target>Create Account</target>
+      </trans-unit>
+       <trans-unit id="Ok7Ezbf" resname="Filtrer">
+        <source>Filtrer</source>
+        <target>Filter</target>
+      </trans-unit>
+       <trans-unit id="Ok7Ezss" resname="10 Magasins">
+        <source>10 Magasins</source>
+        <target>10 Stores</target>
+      </trans-unit>
+      <trans-unit id="Ok7Ezza" resname="A Travers La France">
+        <source>A Travers La France</source>
+        <target>Over France</target>
+      </trans-unit>
+       <trans-unit id="Ok7Ezzb" resname="Consulter">
+        <source>Consulter</source>
+        <target>Consult</target>
+      </trans-unit>
+       <trans-unit id="Ok7Ezzc" resname="Ouvert 7/7">
+        <source>Ouvert 7/7</source>
+        <target>Open 7/7</target>
+      </trans-unit>
+       <trans-unit id="Ok7Ezzd" resname="Tous Nos Magazins Sont Ouverts">
+        <source>Tous Nos Magazins Sont Ouverts</source>
+        <target>All Our Stores Are Open</target>
+      </trans-unit>
+       <trans-unit id="Ok7EzzF" resname="La Solution A Votre Portée">
+        <source>La Solution A Votre Portée</source>
+        <target>The Solution To Your Reach</target>
+      </trans-unit>
+      <trans-unit id="Ok7Ezzg" resname="Un Grand Choix De Montures">
+        <source>Un Grand Choix De Montures</source>
+        <target>A Great Choice of Mounts</target>
+      </trans-unit>
+      <trans-unit id="Ok7Ezzj" resname="SUIVEZ NOUS">
+        <source>SUIVEZ NOUS</source>
+        <target>FOLLOW US</target>
+      </trans-unit>
+      <trans-unit id="Ok7Ezzh" resname="Contactez-Nous">
+        <source>Contactez-Nous</source>
+        <target>Contact Us</target>
+      </trans-unit>
+      <trans-unit id="Ok7Ezzi" resname="Appelez Nous">
+        <source>Appelez Nous</source>
+        <target>Call Us</target>
+      </trans-unit>
+      <trans-unit id="Ok7EzzY" resname="Envoyer Un Message">
+        <source>Envoyer Un Message</source>
+        <target>Send A Message</target>
+      </trans-unit>
+      <trans-unit id="Ok7Ezzk" resname="Envoyer Un Email">
+        <source>Envoyer Un Email</source>
+        <target>Send An Email</target>
+      </trans-unit>
+      <trans-unit id="Ok7Ezzl" resname="Heures De Travail">
+        <source>Heures De Travail</source>
+        <target>Hours of work</target>
+      </trans-unit>
+      <trans-unit id="Ok7Ezzm" resname="Lundi">
+        <source>Lundi</source>
+        <target>Monday</target>
+      </trans-unit>
+        <trans-unit id="Ok7Ezzn" resname="Mardi">
+        <source>Mardi</source>
+        <target>Tuesday</target>
+      </trans-unit>
+      <trans-unit id="Ok7Ezzo" resname="Mercredi">
+        <source>Mercredi</source>
+        <target>Wednesday</target>
+      </trans-unit>
+      <trans-unit id="Ok7Ezzp" resname="Jeudi">
+        <source>Jeudi</source>
+        <target>Thursday</target>
+      </trans-unit>
+      <trans-unit id="Ok7Ezzq" resname="Vendredi">
+        <source>Vendredi</source>
+        <target>Friday</target>
+      </trans-unit>
+      <trans-unit id="Ok7EzzR" resname="Autre">
+        <source>Autre</source>
+        <target>Other</target>
+      </trans-unit>
+      <trans-unit id="Ok7EzzS" resname="A Propos De Nous">
+        <source>A Propos De Nous</source>
+        <target>About Us</target>
+      </trans-unit>
+      <trans-unit id="Ok7EzzT" resname="Nos Valeurs">
+        <source>Nos Valeurs</source>
+        <target>Our Values</target>
+      </trans-unit>
+      <trans-unit id="Ok7EzzV" resname="Montions Légales">
+        <source>Montions Légales</source>
+        <target>Legal Montions</target>
+      </trans-unit>
+      <trans-unit id="Ok7Ezzw" resname="Nouveautés">
+        <source>Nouveautés</source>
+        <target>New arrivals</target>
+      </trans-unit>
+       <trans-unit id="Ok7Ezzx" resname="Offrez-vous les dernières nouveautés de lunettes de vue parmi toutes les collections de marques reconnues.										Chaque modèle de Nouveauté lunette de vue respecte les critères de qualité et de performances que vous en exigez. Les modèles OFP01811 et MF1804 figurent parmi les plus connus du grand public. À savoir que la Nouveauté lunette de vue s’adapte à tous les types de verres.">
+        <source>Offrez-vous les dernières nouveautés de lunettes de vue parmi toutes les collections de marques reconnues.										Chaque modèle de Nouveauté lunette de vue respecte les critères de qualité et de performances que vous en exigez. Les modèles OFP01811 et MF1804 figurent parmi les plus connus du grand public. À savoir que la Nouveauté lunette de vue s’adapte à tous les types de verres.</source>
+        <target>Treat yourself to the latest novelties in prescription glasses from all the collections of recognized brands. Each model of Novelty glasses meets the quality and performance criteria you demand. The OFP01811 and MF1804 models are among the best known to the general public. Namely, the Novelty eyeglass fits all types of lenses.</target>
+      </trans-unit>
+      <trans-unit id="Ok7Ezzy" resname="Nouveau">
+        <source>Nouveau</source>
+        <target>New </target>
+      </trans-unit>
+       <trans-unit id="Ok7Ezzz" resname="Ajouter au panier">
+        <source>Ajouter au panier</source>
+        <target>Add to Cart</target>
+      </trans-unit>
+      <trans-unit id="Ok7Ezaa" resname="Voire Plus de Produits">
+        <source>Voire Plus de Produits</source>
+        <target>View More Products</target>
+      </trans-unit>
+      <trans-unit id="Ok7Ezab" resname="Actualite">
+        <source>Actualite</source>
+        <target>News</target>
+      </trans-unit>
+      <trans-unit id="Ok7Ezac" resname="Pour Tous Les Sexes Et Tous Les Ages">
+        <source>Pour Tous Les Sexes Et Tous Les Ages</source>
+        <target>For All Genders And All Ages</target>
+      </trans-unit>
+       <trans-unit id="Ok7Ezad" resname="Envoyer">
+        <source>Envoyer</source>
+        <target>Send</target>
+      </trans-unit>
+       <trans-unit id="Ok7Ezae" resname="Nous Somme à Votre Service">
+        <source>Nous Somme à Votre Service</source>
+        <target>We are at your service</target>
+      </trans-unit>
+       <trans-unit id="Name" resname="Nom">
+        <source>Nom</source>
+        <target>First Name</target>
+      </trans-unit>
+       <trans-unit id="Prenom" resname="Prenom">
+        <source>Prenom</source>
+        <target>Last Name</target>
+      </trans-unit>
+       <trans-unit id="Mot De Passe" resname="Mot De Passe">
+        <source>Mot De Passe</source>
+        <target>Password</target>
+      </trans-unit>
+       <trans-unit id="Confirmer Le Mot De Passe" resname="Confirmer Le Mot De Passe">
+        <source>Confirmer Le Mot De Passe</source>
+        <target>Confirme Password</target>
+      </trans-unit>
+       <trans-unit id="Créer Un Nouveau Compte" resname="Créer Un Nouveau Compte">
+        <source>Créer Un Nouveau Compte</source>
+        <target>Create New Account</target>
+      </trans-unit>
+       <trans-unit id="S'inscrire" resname="S'inscrire">
+        <source>S'inscrire</source>
+        <target>Register</target>
+      </trans-unit>
+       <trans-unit id="Vous êtes déjà membre" resname="Vous êtes déjà membre">
+        <source>Vous êtes déjà membre</source>
+        <target>You are already a member</target>
+      </trans-unit>
+       <trans-unit id="connexion" resname="connexion">
+        <source>connexion</source>
+        <target>log in</target>
+      </trans-unit>
+      <trans-unit id="AccepterLesTermes" resname="AccepterLesTermes">
+        <source>AccepterLesTermes</source>
+        <target>Agree terms</target>
+      </trans-unit>
+      <trans-unit id="Vous n'avez pas de compte?" resname="Vous n'avez pas de compte?">
+        <source>Vous n'avez pas de compte?</source>
+        <target>Don't have an account?</target>
+      </trans-unit>
+      <trans-unit id="Mot de passe oublié?" resname="Mot de passe oublié?">
+        <source>Mot de passe oublié?</source>
+        <target>Forgot your password?</target>
+      </trans-unit>
+      <trans-unit id="Connectez-vous au compte" resname="Connectez-vous au compte">
+        <source>Connectez-vous au compte</source>
+        <target>Log Into The Account</target>
+      </trans-unit>
+      
+      <trans-unit id="Recherche" resname="Recherche">
+        <source>Recherche</source>
+        <target>Research</target>
+      </trans-unit>
+       <trans-unit id="Prix Max" resname="Prix Max">
+        <source>Prix Max</source>
+        <target>Max Price</target>
+      </trans-unit>
+       <trans-unit id="Prix Min" resname="Prix Min">
+        <source>Prix Min</source>
+        <target>Min Price</target>
+      </trans-unit>
+         <trans-unit id="Formes" resname="Formes">
+        <source>Formes</source>
+        <target>shapes</target>
+      </trans-unit>
+       <trans-unit id="Prix" resname="Prix">
+        <source>Prix</source>
+        <target>Price</target>
+      </trans-unit>
+       <trans-unit id="Categoriés" resname="Categoriés">
+        <source>Categoriés</source>
+        <target>Categories</target>
+      </trans-unit>
+       <trans-unit id="Marques" resname="Marques">
+        <source>Marques</source>
+        <target>Brands</target>
+      </trans-unit>
+       <trans-unit id="Sexe" resname="Sexe">
+        <source>Sexe</source>
+        <target>Gender</target>
+      </trans-unit>
+       <trans-unit id="Couleurs" resname="Couleurs">
+        <source>Couleurs</source>
+        <target>Colors</target>
+      </trans-unit>
+       <trans-unit id="Quantité" resname="Quantité">
+        <source>Quantité</source>
+        <target>Amount</target>
+      </trans-unit>
+      <trans-unit id="ajouter au panier" resname="ajouter au panier">
+        <source>Ajouté au panier</source>
+        <target>Add to Cart</target>
+      </trans-unit>
+        <trans-unit id="Couleur" resname="Couleur">
+        <source>Couleur</source>
+        <target>Color</target>
+      </trans-unit>
+        <trans-unit id=" Marque" resname=" Marque">
+        <source>Marquer</source>
+        <target>Brand</target>
+      </trans-unit>
+        <trans-unit id="Forme" resname="Forme">
+        <source>Forme</source>
+        <target>Shape</target>
+      </trans-unit>
+      <trans-unit id="Poids" resname="Poids">
+        <source>Poids</source>
+        <target>Weight</target>
+      </trans-unit>
+ <trans-unit id="Avis" resname="Avis">
+        <source>Avis</source>
+        <target>Opinions</target>
+      </trans-unit>
+      <trans-unit id="Ajoute Un Avis" resname="Ajoute Un Avis">
+        <source>Ajoute Un Avis</source>
+        <target>Add Opinion</target>
+      </trans-unit>
+       <trans-unit id="Voire Produits Similaire" resname="Voire Produits Similaire">
+        <source>Voire Produits Similaire</source>
+        <target>See Similar Products</target>
+      </trans-unit>
+      <trans-unit id="Publie par" resname="Publie par">
+        <source>Publie par</source>
+        <target>Published by</target>
+      </trans-unit>
+        <trans-unit id="Le" resname="Le">
+        <source>Le</source>
+        <target>At</target>
+      </trans-unit>
+        <trans-unit id="Soyez Toujours à Jour" resname="Soyez Toujours à Jour">
+        <source>Soyez Toujours à Jour</source>
+        <target>Always Be Up To Date</target>
+      </trans-unit>
+      <trans-unit id="Pas d'article Pour Le Moment" resname="Pas d'article Pour Le Moment">
+        <source>Pas d'article Pour Le Moment</source>
+        <target>No article for the moment</target>
+      </trans-unit>
+        <trans-unit id="Service Réactif" resname="Service Réactif">
+        <source>Service Réactif</source>
+        <target>Responsive Service</target>
+      </trans-unit>
+        <trans-unit id="A Votre service À tout Moment." resname="A Votre service À tout Moment.">
+        <source>A Votre service À tout Moment.</source>
+        <target>At Your Service Anytime</target>
+      </trans-unit>
+      
+         <trans-unit id="Mon Panier" resname="Mon Panier">
+        <source>Mon Panier</source>
+        <target>My Cart</target>
+      </trans-unit>
+         <trans-unit id="30 Jours Pour Récuperer Votre Commande a Partir De Nos Magasins" resname="30 Jours Pour Récuperer Votre Commande a Partir De Nos Magasins">
+        <source>30 Jours Pour Récuperer Votre Commande a Partir De Nos Magasins</source>
+        <target>30 Days To Pick Up Your Order From Our Stores</target>
+      </trans-unit>
+         <trans-unit id="Garantie 2 Ans" resname="Garantie 2 Ans">
+        <source>Garantie 2 Ans</source>
+        <target>2 years warranty</target>
+      </trans-unit>
+         <trans-unit id="Livraison  Domicile Aprés Validation De Facture Dans Nos Magasins" resname="Livraison  Domicile Aprés Validation De Facture Dans Nos Magasins">
+        <source>Livraison  Domicile Aprés Validation De Facture Dans Nos Magasins</source>
+        <target>Home delivery after invoice validation in our stores</target>
+      </trans-unit>
+         <trans-unit id="Aucun articles dans le panier" resname="Aucun articles dans le panier">
+        <source>Aucun articles dans le panier</source>
+        <target>No items in the basket</target>
+      </trans-unit>
+         <trans-unit id="Continuer vos achats" resname="Continuer vos achats">
+        <source>Continuer vos achats</source>
+        <target>Continue your purchases</target>
+      </trans-unit>
+         <trans-unit id="Résumé" resname="Résumé">
+        <source>Résumé</source>
+        <target>summary</target>
+      </trans-unit>
+         <trans-unit id="il ne vous reste plus qu'à valider votre adresse et générer votre facture" resname="il ne vous reste plus qu'à valider votre adresse et générer votre facture">
+        <source>il ne vous reste plus qu'à valider votre adresse et générer votre facture</source>
+        <target>il ne vous reste plus qu'à valider votre adresse et générer votre facture</target>
+      </trans-unit>
+         <trans-unit id="Nous acceptons dans nos magasins" resname="Nous acceptons dans nos magasins">
+        <source>Nous acceptons dans nos magasins</source>
+        <target>We accept in our stores</target>
+      </trans-unit>
+      <trans-unit id="Creér un compte pour valide votre commande" resname="Creér un compte pour valide votre commande">
+        <source>Creér un compte pour valide votre commande</source>
+        <target>Create an account to validate your order</target>
+      </trans-unit>
+       <trans-unit id="Ville" resname="Ville">
+        <source>Ville</source>
+        <target>City</target>
+      </trans-unit>
+       <trans-unit id="Pays" resname="Pays">
+        <source>Pays</source>
+        <target>Country</target>
+      </trans-unit>
+          <trans-unit id="Ajoute Une Address" resname="Ajoute Une Address">
+        <source>Ajoute Une Address</source>
+        <target>Add an Address</target>
+      </trans-unit>
+          <trans-unit id="Adresse de livraison" resname="Adresse de livraison">
+        <source>Adresse de livraison</source>
+        <target>Delivery address</target>
+      </trans-unit>
+          <trans-unit id="Adresse de Facturation" resname="Adresse de Facturation">
+        <source>Adresse de Facturation</source>
+        <target>Billing address</target>
+      </trans-unit>
+         <trans-unit id="Valider mes adresses" resname="Valider mes adresses">
+        <source>Valider mes adresses</source>
+        <target>Validate my addresses</target>
+      </trans-unit>
+        <trans-unit id="Ajoute" resname="Ajoute">
+        <source>Ajoute</source>
+        <target>Add</target>
+      </trans-unit>
+      <trans-unit id="Ma Commande" resname="Ma Commande">
+        <source>Ma Commande</source>
+        <target>My command</target>
+      </trans-unit>
+      <trans-unit id="Générer Votre Facture" resname="Générer Votre Facture">
+        <source>Générer Votre Facture</source>
+        <target>Generate Your Invoice</target>
+      </trans-unit>
+         <trans-unit id="Générer" resname="Générer">
+        <source>Générer</source>
+        <target>Generate</target>
+      </trans-unit>
+        <trans-unit id="Aucune facture actuellement" resname="Aucune facture actuellement">
+        <source>Aucune facture actuellement</source>
+        <target>No invoice currently</target>
+      </trans-unit>
+         <trans-unit id="Retour a la page login" resname="Retour a la page login">
+        <source>Retour a la page login</source>
+        <target>Back to the login page</target>
+      </trans-unit>
+         <trans-unit id="Mettre à jour" resname="Mettre à jour">
+        <source>Mettre à jour</source>
+        <target>Update</target>
+      </trans-unit>
+         <trans-unit id="Modification du mot de passe" resname="Modification du mot de passe">
+        <source>Modification du mot de passe</source>
+        <target>Changing the password</target>
+      </trans-unit>
+        <trans-unit id="Veuillez saisir un nouveau mot de passe" resname="Veuillez saisir un nouveau mot de passe">
+        <source>Veuillez saisir un nouveau mot de passe</source>
+        <target>Please enter a new password</target>
+      </trans-unit>
+         <trans-unit id="Mon Profile" resname="Mon Profile">
+        <source>Mon Profile</source>
+        <target>My Profile</target>
+      </trans-unit>
+         <trans-unit id="Mes Factures" resname="Mes Factures">
+        <source>Mes Factures</source>
+        <target>My Bills</target>
+      </trans-unit>
+         <trans-unit id="Mon Adresse" resname="Mon Adresse">
+        <source>Mon Adresse</source>
+        <target>My Address</target>
+      </trans-unit>
+         <trans-unit id="Changer Mot De Passe" resname="Changer Mot De Passe">
+        <source>Changer Mot De Passe</source>
+        <target>Change Password</target>
+      </trans-unit>
+         <trans-unit id="Modifier Mon Profil" resname="Modifier Mon Profil">
+        <source>Modifier Mon Profil</source>
+        <target>Edit My Profile</target>
+      </trans-unit>
+          <trans-unit id="Mot De Passe Actuelle" resname="Mot De Passe Actuelle">
+        <source>Mot De Passe Actuelle</source>
+        <target>Current Password</target>
+      </trans-unit>
+          <trans-unit id="Nouveau Mot De Passe" resname="Nouveau Mot De Passe">
+        <source>Nouveau Mot De Passe</source>
+        <target>New Password</target>
+      </trans-unit>
+          <trans-unit id="Modifier Adresse" resname="Modifier Adresse">
+        <source>Modifier Adresse</source>
+        <target>Edit Address</target>
+      </trans-unit>
+   <trans-unit id="Modification du profil" resname="Modification du profil">
+        <source>Modification du profil</source>
+        <target>Profile modification</target>
+      </trans-unit>
+         <trans-unit id="Votre Identité" resname="Votre Identité">
+        <source>Votre Identité</source>
+        <target>Your identity</target>
+      </trans-unit>
+         <trans-unit id="Adresse principale" resname="Adresse principale">
+        <source>Adresse principale</source>
+        <target>Main address</target>
+      </trans-unit>
+         <trans-unit id="veuillez cliquer" resname="veuillez cliquer">
+        <source>veuillez cliquer</source>
+        <target>please click</target>
+      </trans-unit>
+          <trans-unit id="ici" resname="ici">
+        <source>ici</source>
+        <target>here</target>
+      </trans-unit>
+          <trans-unit id="pour ajouter une adresse" resname="pour ajouter une adresse">
+        <source>pour ajouter une adresse</source>
+        <target>to add an address</target>
+      </trans-unit>
+          <trans-unit id="Modifier" resname="Modifier">
+        <source>Modifier</source>
+        <target>Edit</target>
+      </trans-unit>
+         <trans-unit id="Profil" resname="Profil">
+        <source>Profil</source>
+        <target>Profile</target>
+      </trans-unit>
+          <trans-unit id="Renétialisez votre mot de passe" resname="Renétialisez votre mot de passe">
+        <source>Renétialisez votre mot de passe</source>
+        <target>Renetialize your password</target>
+      </trans-unit>
+        <trans-unit id="Vous êtes connecté en tant que" resname="Vous êtes connecté en tant que">
+        <source>Vous êtes connecté en tant que</source>
+        <target>You are logged in as</target>
+      </trans-unit>
+        <trans-unit id="Veuillez mettre un nouveau mot de passe" resname="Veuillez mettre un nouveau mot de passe">
+        <source>Veuillez mettre un nouveau mot de passe</source>
+        <target>Please put a new password</target>
+      </trans-unit>
+        <trans-unit id="Nouveau mot de passe" resname="Nouveau mot de passe">
+        <source>Nouveau mot de passe</source>
+        <target>New Password</target>
+      </trans-unit>
+        <trans-unit id="Bienvenue" resname="Bienvenue">
+        <source>Bienvenue</source>
+        <target>welcome</target>
+      </trans-unit>
+
+
+          <trans-unit id="désolé pas d'article pour le moment" resname="désolé pas d'article pour le moment">
+        <source>désolé pas d'article pour le moment</source>
+        <target>sorry no article for the moment</target>
+      </trans-unit>
+          <trans-unit id="pas d'article avec ce titre" resname="pas d'article avec ce titre">
+        <source>pas d'article avec ce titre</source>
+        <target>no article with this title</target>
+      </trans-unit>
+          <trans-unit id="pas d'article pour le moment" resname="pas d'article pour le moment">
+        <source>no article for the moment</source>
+        <target>welcome</target>
+      </trans-unit>
+          <trans-unit id="Pas De Produits Avec Ces Critères" resname="Pas De Produits Avec Ces Critères">
+        <source>Pas De Produits Avec Ces Critères</source>
+        <target>No Products With These Criteria</target>
+      </trans-unit>
+          <trans-unit id="la categorie n'existe pas" resname="la categorie n'existe pas">
+        <source>la categorie n'existe pas</source>
+        <target>the category does not exist</target>
+      </trans-unit>
+          <trans-unit id="la commande Ñ'existe pas" resname="la commande Ñ'existe pas">
+        <source>la commande Ñ'existe pas</source>
+        <target>the command does not exist</target>
+      </trans-unit>
+        <trans-unit id="désole pas de  style pour le moment " resname="désole pas de  style pour le moment ">
+        <source>désole pas de  style pour le moment </source>
+        <target>sorry no style for the moment</target>
+      </trans-unit>
+      <trans-unit id="adresse non trouver" resname="adresse non trouver">
+        <source>adresse non trouver</source>
+        <target>address not found</target>
+      </trans-unit>
+       <trans-unit id="page inaccesible" resname="page inaccesible">
+        <source>page inaccesible</source>
+        <target>inaccessible page</target>
+      </trans-unit>
+            <trans-unit id="utilisateur non trouvé" resname="utilisateur non trouvé">
+        <source>utilisateur non trouvé</source>
+        <target>user not found</target>
+      </trans-unit>
+     
+      <trans-unit id="votre code secret est faux" resname="votre code secret est faux">
+        <source>votre code secret est faux</source>
+        <target>your secret code is wrong</target>
+      </trans-unit>
+      <trans-unit id="pas de style avec ce nom" resname="pas de style avec ce nom">
+        <source>pas de style avec ce nom</source>
+        <target>no style with this name</target>
+      </trans-unit>
+          <trans-unit id="votre commentaire et envoyé" resname="votre commentaire et envoyé">
+        <source>votre commentaire et envoyé</source>
+        <target>your comment and sent</target>
+      </trans-unit>
+          <trans-unit id="Article ajouté" resname="Article ajouté">
+        <source>votre commentaire et envoyé</source>
+        <target>Item addedt</target>
+      </trans-unit>
+        <trans-unit id="adresse ajouté avec succes" resname="adresse ajouté avec succes">
+        <source>adresse ajouté avec succes</source>
+        <target>address successfully added</target>
+      </trans-unit>
+          <trans-unit id="Cette Adresse ñ'existe Pas" resname="Cette Adresse ñ'existe Pas">
+        <source>Cette Adresse ñ'existe Pas</source>
+        <target>This Address Does Not Exist</target>
+      </trans-unit>
+         <trans-unit id="Une Erreur Est Survenue :" resname="Une Erreur Est Survenue :">
+        <source>Une Erreur Est Survenue :</source>
+        <target>An error has occurred :</target>
+      </trans-unit>
+          <trans-unit id="un e-mail de réinitialisation du mot de passe a été envoyé à votre adresse e-mail" resname="un e-mail de réinitialisation du mot de passe a été envoyé à votre adresse e-mail">
+        <source>un e-mail de réinitialisation du mot de passe a été envoyé à votre adresse e-mail</source>
+        <target>a password reset email has been sent to your email address</target>
+      </trans-unit>
+          <trans-unit id="Changement de mot de passe réussi" resname="Changement de mot de passe réussi">
+        <source>Changement de mot de passe réussi</source>
+        <target>Password change successful</target>
+      </trans-unit>
+
+           <trans-unit id="Les deux mots de passe ne sont pas identiques" resname="Les deux mots de passe ne sont pas identiques">
+        <source>Les deux mots de passe ne sont pas identiques</source>
+        <target>The two passwords are not the same</target>
+      </trans-unit>
+           <trans-unit id="ancien mot de pass non valide" resname="ancien mot de pass non valide">
+        <source>ancien mot de pass non valide</source>
+        <target>old password not valid</target>
+      </trans-unit>
+           <trans-unit id="une erreur est survenue" resname="une erreur est survenue">
+        <source>une erreur est survenue</source>
+        <target>An error has occurred</target>
+      </trans-unit>
+         
+
+
+
+
+
+    </body>
+  </file>
+</xliff>

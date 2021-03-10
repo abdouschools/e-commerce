@@ -1,0 +1,81 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+	{% trans %}Vos Factures{% endtrans %}
+{% endblock %}
+{% block content %}
+	{% for message in  app.flashes ('message') %}
+		<div class="alert alert-success">{{ message }}</div>
+	{% endfor %}
+	{% for message in  app.flashes ('success') %}
+		<div class="alert alert-success">{{ message }}</div>
+	{% endfor %}
+	{% for message in  app.flashes ('error') %}
+		<div class="alert alert-success">{{ message }}</div>
+	{% endfor %}
+	{% include '/profile/profile-nav.html.twig' %}
+	<div class="container-fluid padding">
+		<div class="row welcome text-center">
+			<div class="col-12 ">
+				<h3 class="identite">{% trans %}Vos Factures{% endtrans %}</h3>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="container-facture mt-3 mx-5">
+		<table class="table">
+
+			<thead>
+				<tr>
+					<th>Réference</th>
+					<th>Date</th>
+					<th>{% trans %}Prix{% endtrans %}
+						TTC</th>
+
+				</tr>
+			</thead>
+			<tbody>
+
+				{% if facture | length == 0 %}
+					<tr>
+						<td colspan='4'>
+							<center>{% trans %}Aucune facture actuellement{% endtrans %}</center>
+						</td>
+					</tr>
+				{% endif %}
+				{% for facture in facture %}
+					<tr>
+						<td>Ref :
+							{{facture.reference}}
+
+						</td>
+						<td>{{facture.date | date ('d/m/Y h:m:s ')}}</td>
+						<td>{{facture.commande.prixTTC}}</td>
+						<td>
+							<a href="" class='icon-refresh'></a>
+						</td>
+						<td>
+							<a class='p-2' href="{{ path ('facturepdf', {'id': facture.id}) }}">
+								<i class="fas fa-cloud-download-alt telecharge"></i>
+							</a>
+							<a class='p-2' href="{{ path ('commande-supprime', {'id': facture.id}) }}">
+								<i class="fas fa-trash-alt"></i>
+							</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+
+		</table>
+	</div>
+
+	<div class="container-fluid padding">
+		<div class="row welcome text-center">
+			<div class="col-12 ">
+				<a class="forget-link continue-achat" href="{{path ('filter')}}">{% trans %}Continuer vos achats{% endtrans %}</a>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

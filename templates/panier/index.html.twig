@@ -1,0 +1,199 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+	{% trans %}Mon Panier{% endtrans %}
+{% endblock %}
+{% block carousel %}{% endblock %}
+
+{% block content %}
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
+	{% for message in app.flashes('message')%}
+		<div class='alert alert-success'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes('warning')%}
+		<div class='alert alert-warning'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes(' danger')%}
+		<div class=' alert alert-danger'>{{message}}</div>
+	{% endfor %}
+
+
+	<div class="container-panier ">
+		<div class="row">
+			<div class="col-12 text-center mb-2">
+				<h2 class="mon-panier">{% trans %}Mon Panier{% endtrans %}</h2>
+			</div>
+		</div>
+		<div class="row text-center">
+			<div class="col-md-5 col-sm-12 mb-2 ">
+				<p class="info-panier text-center">{% trans %}30 Jours Pour Récuperer Votre Commande a Partir De Nos Magasins{% endtrans %}
+				</p>
+			</div>
+			<div class="col-md-2 col-sm-12 mb-2 garantie">
+				<p class="info-panier text-center">{% trans %}Garantie 2 Ans{% endtrans %}</p>
+			</div>
+			<div class="col-md-5 col-sm-12 mb-2 ">
+				<p class="info-panier text-center">{% trans %}Livraison  Domicile Aprés Validation De Facture Dans Nos Magasins{% endtrans %}</p>
+			</div>
+		</div>
+
+		<div class="row panier">
+			<div class="col-12 text-center ">
+				<table class="table">
+
+					<thead>
+
+						<tr>
+
+							<th>Article</th>
+							<th>Prix</th>
+
+							<th>Quantite</th>
+							<th>Total</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						{% if articles | length == 0 %}
+							<tr>
+								<td colspan='4'>
+									<center>{% trans %}Aucun articles dans le panier{% endtrans %}</center>
+									<center>
+										<a class="forget-link" href="{{path ('filter')}}">{% trans %}Continuer vos achats{% endtrans %}</a>
+									</center>
+								</td>
+							</tr>
+						{% endif %}
+
+						{% for produit in articles %}
+							<tr>
+								<form action="{{ path ('ajouter', {'id': produit.id}) }}" method="get">
+
+									<td class="panier-image">
+										<a href="{{path('article', {'slug': produit.slug})}}"><img src="{{ asset ('/images/attachments/' ~ produit.attachments[0].image )}}" alt="{{produit.imageAlt}}"></a>
+									</td>
+
+									<td>{{produit.prix }}
+										€</td>
+									{#<td>{{produit.prix }}
+																																																																																																																					€</td>#}
+									<td>
+										<select name="qte" class='span1' onchange="this.form.submit()">
+											{% for i in  1..10 %}
+												<option value="{{i}}" {% if i == panier[produit.id] %} selected="selected" {% endif %}>{{i}}</option>
+
+											{% endfor %}
+
+										</select>
+										<a href="{{ path ('supprime', {'id': produit.id}) }}">
+											<i class="fas fa-trash-alt"></i>
+										</a>
+
+									</td>
+									<td>{{produit.prix * panier[produit.id]}}
+										€</td>
+								</form>
+							</tr>
+
+						{% endfor %}
+					</tbody>
+				</table>
+
+
+			</div>
+		</div>
+
+
+	</div>
+	<div class="row">
+		{% if articles | length != 0 %}
+			<div class="col-md-6  col-sm-10 text-center total total-mi">
+
+				<div class="row ">
+					<div class="col-12  ">
+
+						<strong>{% trans %}Résumé{% endtrans %}</strong>
+					</div>
+					<div class="col-12  ">
+						<div class="row ">
+							<div class="col-6 ">
+								<h5>TotalHT :</h5>
+							</div>
+							<div class="col-6 ">
+								{{commande.totalHT}}
+								€
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<hr>
+				<div class="row ">
+					<div class="col-12">
+						<div class="row ">
+							<div class="col-6 ">
+								<h5>TVA :</h5>
+							</div>
+							<div class="col-6 ">
+								{% for tva in commande.tva %}
+									{{tva}}€
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div class="row ">
+					<div class="col-12 ">
+						<div class="row ">
+							<div class="col-6 ">
+								<h5>TotaLTTC :</h5>
+							</div>
+							<div class="col-6 ">
+								{{commande.totalTTC}}
+								€
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		{% endif %}
+		<div class="col-md-6  col-sm-10 text-center  ">
+			{% if articles | length != 0 %}
+
+				{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+					<div class="container-b">
+						<a href="{{ path ('livraison') }}" class="btn btn1 rounded ajoute-panier">
+							<i class="fas fa-shopping-cart"></i>Validation</a>
+						<p>{% trans %}il ne vous reste plus qu'à valider votre adresse et générer votre facture{% endtrans %}</p>
+					</div>
+				{% else %}
+					<div class="container-b">
+						<p>{% trans %}Creér un compte pour valide votre commande{% endtrans %}</p>
+						<a class="forget-link " href="{{path('app_register')}}">{% trans %}Nouveau Compte{% endtrans %}</a>
+						<p>{% trans %}Vous êtes déjà membre{% endtrans %}</p>
+						<a href="{{path('app_login')}}" class="register-link">
+							{% trans %}connexion{% endtrans %}
+						</a>
+
+					</div>
+				{% endif %}
+
+				<strong>{% trans %}Nous acceptons dans nos magasins{% endtrans %}</strong>
+				<div class="paiment">
+					<img src="{{ asset ('/image/paiment.jpg' )}}" alt=""></div>
+			{% endif %}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 text-center mt-4">
+			<center>
+				<a class="forget-link continue-achat" href="{{path ('filter')}}">{% trans %}Continuer vos achats{% endtrans %}</a>
+			</center>
+		</div>
+	</div>
+{% endblock %}

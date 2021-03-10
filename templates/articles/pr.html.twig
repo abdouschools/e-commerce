@@ -1,0 +1,11 @@
+<td class=" text-center field-image" dir="ltr">
+	{% for produit in field.value %}
+		<p>Nom produit :{{produit.reference}}/
+									Quantité :
+			{{produit. quantite}}/
+									PrixHT :
+			{{produit. prixHT}}/
+									PrixTTC :{{produit.prixTTC}}</p>
+	{% endfor %}
+
+</td>

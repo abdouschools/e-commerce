@@ -1,0 +1,77 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Log in!
+{% endblock %}
+{% block  carousel %}{% endblock %}
+{% block content %}
+	{% for message in app.flashes('message')%}
+		<div class='alert alert-success'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes('warning')%}
+		<div class='alert alert-warning'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes(' danger')%}
+		<div class=' alert alert-danger'>{{message}}</div>
+	{% endfor %}
+
+
+	{% if app.user %}
+		<div class="container " id="login">
+			<div class="card text-center">
+
+				<p>{% trans %}Vous êtes connecté en tant que{% endtrans %}
+					{{ app.user.username }}</p>
+				<a class="forget-link" href="{{ path('app_logout') }}">Logout</a>
+
+			</div>
+		</div>
+	{% else %}
+
+		<div class="container " id="login">
+			<div class="row px-3">
+				<div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+					<div class="img-left d-none d-md-flex"></div>
+
+					<div class="card-body">
+						<h4 class="title text-center mt-4">
+							{% trans %}Connectez-vous au compte{% endtrans %}
+						</h4>
+						<form method="post" class="form-box px-3" novalidate>
+							{% if error %}
+								<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+							{% endif %}
+							<div class="form-input">
+
+								<input type="email" placeholder="Email" tabindex="10" value="{{ last_username }}" name="email" id="inputEmail" required autofocus>
+							</div>
+							<div class="form-input">
+
+								<input name="password" id="inputPassword" type="password" placeholder="Mot De Passe" required>
+							</div>
+							<div class="mb-3 login">
+								<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+								<button type="submit" id='register'>
+									{% trans %}connexion{% endtrans %}
+								</button>
+							</div>
+
+							<div class="text-right">
+								<a href="{{path('app_forgotten_password')}}" class="forget-link">
+									{% trans %}Mot de passe oublié?{% endtrans %}
+								</a>
+							</div>
+							<hr class="my-4">
+
+							<div class="text-center mb-2">
+								{% trans %}Vous n'avez pas de compte?{% endtrans %}
+								<a href="{{path('app_register')}}" class="register-link">
+									{% trans %}S'inscrire{% endtrans %}
+								</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+{% endblock %}

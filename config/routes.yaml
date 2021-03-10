@@ -1,3 +1,27 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+---
+#---------------------------------------route statiques-----------------------------------------------------
+qui-sommes-nous:
+  path: /qui-somme-nous
+  controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: "statique/quiSommesNous.html.twig"
+cgv:
+  path: /cgv
+  controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: "statique/cgv.html.twig"
+devenir:
+  path: /devenir-bloggeur
+  controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: "statique/devenirBloggueur.html.twig"
+values:
+  path: /values
+  controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: "statique/values.html.twig"
+magasins:
+  path: /magasins
+  controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: "statique/magasins.html.twig"

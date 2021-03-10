@@ -1,0 +1,60 @@
+{% extends "layout.html.twig" %}
+{% block meta %}
+	<meta name="description " content=" 1ère sur l'info. Retrouvez toute l'actualité , en photo et en vidéo sur beauty eyes news, sociale, économique, sportive et internationale.">
+{% endblock %}
+{% block title %}
+	{% trans %}Actualite{% endtrans %}
+{% endblock %}
+
+{% block content %}
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
+	{% for message in app.flashes('message')%}
+		<div class='alert alert-success'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes('warning')%}
+		<div class='alert alert-warning'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes(' danger')%}
+		<div class=' alert alert-danger'>{{message}}</div>
+	{% endfor %}
+	<div class="container-fluid padding">
+		<div class="row welcome text-center">
+			<div class="col-12 ">
+				<h1 class='display-4'>{% trans %}Soyez Toujours à Jour{% endtrans %}</h1>
+				<hr>
+			</div>
+		</div>
+	</div>
+	<article class="site_container">
+		<div class="article-container">
+			{% if actualite.key is  not same as null %}
+				{% for actualite in actualite %}
+					<section class="article-card">
+						<figure class="article-image">
+							<img class="ar-img" src="{{ asset ('/images/actualite/' ~ actualite.image ) | imagine_filter('article1') }}" alt="{{actualite.alt}}">
+						</figure>
+						<div class="article-content">
+							<a href="" class="cart-categorie">Beauty Eyes</a>
+							<h3 class="card-title">{{actualite.titre}}</h3>
+							<p class="card-excerpt ">
+								<font color="#6b82a7">{{actualite.accrouche |  slice(0 , 120) | raw }}<a class="lire" href="{{path('actualite-show', {'slug': actualite.slug})}}">...Lire La Suite</a>
+								</font>
+							</p>
+						</div>
+
+					</section>
+				{% endfor %}
+			{% else %}
+				<div class="container-fluid padding">
+					<div class="row welcome text-center">
+						<div class="container-b">
+							<button class="btn btn1 rounded">{% trans %}Aucun article publié pour le moment{% endtrans %}</button>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	</article>
+{% endblock %}

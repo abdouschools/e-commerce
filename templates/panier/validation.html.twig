@@ -1,0 +1,159 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+	{% trans %}Ma Commande{% endtrans %}
+{% endblock %}
+
+{% block carousel %}{% endblock %}
+
+{% block content %}
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
+	{% for message in app.flashes('message')%}
+		<div class='alert alert-success'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes('warning')%}
+		<div class='alert alert-warning'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes(' danger')%}
+		<div class=' alert alert-danger'>{{message}}</div>
+	{% endfor %}
+	<article class="container-panier ">
+		<div class="row">
+			<div class="col-12 text-center mb-2">
+				<h2 class="mon-panier">{% trans %}Ma Commande{% endtrans %}</h2>
+			</div>
+		</div>
+		<section class="row text-center">
+			<div class="col-md-5 col-sm-12 mb-2 ">
+				<aside>
+					<p class="info-panier text-center">{% trans %}30 Jours Pour Récuperer Votre Commande a Partir De Nos Magasins{% endtrans %}
+					</p>
+				</aside>
+			</div>
+			<div class="col-md-2 col-sm-12 mb-2 garantie">
+				<aside>
+					<p class="info-panier text-center">{% trans %}Garantie 2 Ans{% endtrans %}</p>
+				</aside>
+			</div>
+			<div class="col-md-5 col-sm-12 mb-2 ">
+				<aside>
+					<p class="info-panier text-center">{% trans %}Livraison  Domicile Aprés Validation De Facture Dans Nos Magasins{% endtrans %}</p>
+				</aside>
+			</div>
+		</section>
+
+		<section class="row panier">
+			<article class="col-12 text-center ">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Article</th>
+							<th>Prix</th>
+							<th>Quantite</th>
+							<th>Total</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for produit in commande.commande.produit %}
+							<tr>
+								<form action="" method="get">
+									<td>{{produit.reference}}</td>
+									<td>
+										{{produit.prixHT }}
+									</td>
+									<td>{{produit.quantite}}</td>
+									<td>{{produit.prixHT * produit.quantite}}</td>
+								</form>
+							</tr>
+						</tr>
+					</tbody>
+				{% endfor %}
+			</article>
+		</section>
+	</article>
+	<article class="row">
+		<section class="col-md-6  col-sm-10 text-center total total-mi">
+			<div class="row ">
+				<div class="col-12  ">
+					<strong>{% trans %}Résumé{% endtrans %}</strong>
+				</div>
+				<div class="col-12  ">
+					<div class="row ">
+						<div class="col-6 ">
+							<h5>TotalHT :</h5>
+						</div>
+						<div class="col-6 ">
+							{{commande.commande.prixHt}}
+							€
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<hr>
+			<div class="row ">
+				<div class="col-12">
+					<div class="row ">
+						<div class="col-6 ">
+							<h5>TVA :</h5>
+						</div>
+						<div class="col-6 ">
+							{% for tva in commande.commande.tva %}
+								{{tva}}
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr>
+			<div class="row ">
+				<div class="col-12 ">
+					<div class="row ">
+						<div class="col-6 ">
+							<h5>TotaLTTC :</h5>
+						</div>
+						<div class="col-6 ">
+							{{commande.commande.prixTTC}}
+							€
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="col-md-6  col-sm-10 text-center  ">
+			<div class="container-b">
+				<p>{% trans %}Générer Votre Facture{% endtrans %}</p>
+				<form action="{{ path ('finalisation' , {id : commande.id}) }}">
+					<input name="prix" type="hidden" value="{{commande.commande.prixTTC}}">
+					<input name="date" type="hidden" value="{{commande.date | date ('d/m/y/ h:m:s') }}">
+					<button type="submit" class="btn btn1 rounded ajoute-panier">{% trans %}Générer{% endtrans %}</button>
+				</form>
+			</div>
+			<strong>{% trans %}Nous acceptons dans nos magasins{% endtrans %}</strong>
+			<div class="paiment">
+				<img src="{{ asset ('/image/paiment.jpg' )}}" alt=""></div>
+		</section>
+	</article>
+	<section class="row total total-mi mt-3">
+		<div class="col-6 text-center">
+			<h4>{% trans %}Adresse de livraison{% endtrans %}</h4>
+			{{commande.commande.livraison.nom}}-{{commande.commande.livraison.prenom}}-{{commande.commande.livraison.vilee}}-{{commande.commande.livraison.pays}}-{{commande.commande.livraison.cp}}-</div>
+		<div class="col-6 text-center">
+			<h4>{% trans %}Adresse de Facturation{% endtrans %}</h4>
+			{{commande.commande.facturation.nom}}-{{commande.commande.facturation.prenom}}-{{commande.commande.facturation.vilee}}-{{commande.commande.facturation.pays}}-{{commande.commande.facturation.cp}}-</div>
+		<div class="col-12 text-center pt-3">
+			<center>
+				<a class="forget-link continue-achat" href="{{path ('livraison') }}">{% trans %}Modifier{% endtrans %}</a>
+			</center>
+		</div>
+	</section>
+	<section class="row">
+		<div class="col-12 text-center mt-4">
+			<center>
+				<a class="forget-link continue-achat" href="{{path ('filter')}}">{% trans %}Continuer vos achats{% endtrans %}</a>
+			</center>
+		</div>
+	</section>
+{% endblock %}

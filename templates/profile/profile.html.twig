@@ -1,0 +1,203 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+	{% trans %}Profil{% endtrans %}
+{% endblock %}
+{% block content %}
+	{% for message in  app.flashes ('message') %}
+		<div class="alert alert-success">{{ message }}</div>
+	{% endfor %}
+	{% for message in  app.flashes ('success') %}
+		<div class="alert alert-success">{{ message }}</div>
+	{% endfor %}
+	{% for message in  app.flashes ('error') %}
+		<div class="alert alert-success">{{ message }}</div>
+	{% endfor %}
+
+	{% include '/profile/profile-nav.html.twig' %}
+
+	<div class="container-profile">
+		<section class="row text-center">
+			<div class="col-10 col-md-10 row-product  ">
+				<div class="row ">
+					<div class="col-12 text-center  ">
+						<h3 class="identite">{% trans %}Votre Identité{% endtrans %}</h3>
+					</div>
+				</div>
+				<div class="row ">
+					<div class="col-12 ">
+						<div class="row">
+							<div class="col-6">
+								<p class="fo">
+									<i class="fas fa-hand-holding-usd font"></i>
+									{% trans %}Nom{% endtrans %}</p>
+							</div>
+							<div class="col-6">
+								<p class="fo">{{app.user.nom  }}</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 ">
+						<div class="row">
+							<div class="col-6">
+								<p class="fo">
+									<i class="fas fa-money-check-alt font"></i>
+									{% trans %}Prenom{% endtrans %}</p>
+							</div>
+							<div class="col-6">
+
+								<p class="fo">{{app.user.prenom  }}</p>
+							</p>
+						</div>
+					</div>
+					<div class="col-12 ">
+						<div class="row">
+							<div class="col-6">
+								<p class="fo">
+									<i class="fas fa-sort-numeric-up font"></i>
+									{% trans %}Email{% endtrans %}</p>
+							</div>
+							<div class="col-6">
+								<p class="fo comment-content">{{app.user.email  }}</p>
+							</p>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="row pt-2">
+					<div class="col-12 text-center">
+						<div class="container-b">
+							<a href="{{path('app_modif_profile')}}" class="btn btn1 rounded ajoute-panier">
+								<i class="fas fa-shopping-cart"></i>
+								{% trans %}Modifier{% endtrans %}</a>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+
+
+		</section>
+		{% if app.user.principaleAdresse is not same as null %}
+			<section class="row">
+				<div class="col-10 col-md-10 row-product  ">
+					<div class="row ">
+						<div class="col-12 text-center  ">
+							<h3 class="identite">{% trans %}Adresse principale{% endtrans %}</h3>
+						</div>
+					</div>
+					<div class="row ">
+						<div class="col-12 ">
+							<div class="row">
+								<div class="col-6">
+									<p class="fo">
+										<i class="fas fa-hand-holding-usd font"></i>
+										{% trans %}adresse{% endtrans %}</p>
+								</div>
+								<div class="col-6">
+									<p class="fo">{{app.user.principaleAdresse.adresse  }}</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 ">
+							<div class="row">
+								<div class="col-6">
+									<p class="fo">
+										<i class="fas fa-money-check-alt font"></i>
+										{% trans %}complement{% endtrans %}</p>
+								</div>
+								<div class="col-6">
+
+									<p class="fo">{{app.user.principaleAdresse.complement }}</p>
+								</p>
+							</div>
+						</div>
+						<div class="col-12 ">
+							<div class="row">
+								<div class="col-6">
+									<p class="fo">
+										<i class="fas fa-sort-numeric-up font"></i>
+										{% trans %}Ville{% endtrans %}</p>
+								</div>
+								<div class="col-6">
+									<p class="fo">{{app.user.principaleAdresse.ville  }}</p>
+								</p>
+							</div>
+						</div>
+						<div class="col-12 ">
+							<div class="row">
+								<div class="col-6">
+									<p class="fo">
+										<i class="fas fa-sort-numeric-up font"></i>
+										{% trans %}Code Postal{% endtrans %}</p>
+								</div>
+								<div class="col-6">
+									<p class="fo">{{app.user.principaleAdresse.cp }}</p>
+								</p>
+							</div>
+						</div>
+						<div class="col-12 ">
+							<div class="row">
+								<div class="col-6">
+									<p class="fo">
+										<i class="fas fa-sort-numeric-up font"></i>
+										{% trans %}Pays{% endtrans %}</p>
+								</div>
+								<div class="col-6">
+									<p class="fo">{{app.user.principaleAdresse.pays }}</p>
+								</p>
+							</div>
+						</div>
+						<div class="col-12 ">
+							<div class="row">
+								<div class="col-6">
+									<p class="fo">
+										<i class="fas fa-sort-numeric-up font"></i>
+										{% trans %}Telephone{% endtrans %}</p>
+								</div>
+								<div class="col-6">
+									<p class="fo">{{app.user.principaleAdresse.telephone }}</p>
+								</p>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row pt-2">
+						<div class="col-12 text-center">
+							<div class="container-b">
+								<button href="" class="btn btn1 rounded ajoute-panier">
+									<i class="fas fa-shopping-cart"></i>
+									{% trans %}Modifier{% endtrans %}</button>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+
+
+			</section>
+		{% else %}
+			<section class="col-10 col-md-10 row-product  ">
+				<div class="row  text-center ">
+					<div class="col-12 text-center  ">
+						<h3 class="identite">{% trans %}Adresse principale{% endtrans %}</h3>
+						<p>{% trans %}veuillez cliquer{% endtrans %}
+							<a href="{{path('principale_adresse')}}" class="register-link">
+
+								<strong>{% trans %}ici{% endtrans %}</strong>
+							</a>
+							{% trans %}pour ajouter une adresse{% endtrans %}</p>
+
+
+					</div>
+				</div>
+
+
+			</section>
+		{% endif %}
+	</div>
+{% endblock %}

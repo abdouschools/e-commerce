@@ -1,0 +1,67 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Contact Us
+{% endblock %}
+{% block  carousel %}{% endblock %}
+{% block content %}
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
+	{% for message in app.flashes('message')%}
+		<div class='alert alert-success'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes('warning')%}
+		<div class='alert alert-warning'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes(' danger')%}
+		<div class=' alert alert-danger'>{{message}}</div>
+	{% endfor %}
+
+
+	<div class="container " id="login">
+		<div class="row px-3">
+			<div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+				<div class="img-left-contact d-none d-md-flex" alt="image lunette"></div>
+
+				<div class="card-body" id="formulaire">
+					<h4 class="title text-center mt-4">
+						{% trans %}Contactez-Nous{% endtrans %}
+					</h4>
+
+					{{ form_start (form,  {'attr': {'novalidate' : 'novalidate'}})  }}
+					<div class="form-input">
+						{{ form_row(form.nom) }}
+					</div>
+
+					<div class="form-input">
+
+						{{ form_row(form.email) }}
+					</div>
+					<div class="form-input">
+
+						{{ form_row(form.message) }}
+					</div>
+					<div class="mb-3 login">
+
+						<button type="submit" id='register'>
+							{% trans %}
+							Envoyer{% endtrans %}
+						</button>
+					</div>
+
+
+					<hr class="my-4">
+
+					<div class="text-center mb-2">
+						{% trans %}Nous Somme à Votre Service{% endtrans %}
+						<a href="tel:+33753750622" class="register-link">
+							{% trans %}Appelez Nous{% endtrans %}
+						</a>
+					</div>
+					{{ form_end(form) }}
+
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

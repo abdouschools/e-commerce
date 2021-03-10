@@ -1,0 +1,345 @@
+{% extends "layout.html.twig" %}
+{% block meta %}
+	<meta name="description " content="{{article.meta}} ">
+{% endblock %}
+{% block title %}
+	{{ article.nom}}
+{% endblock %}
+{% block carousel %}{% endblock %}
+{% block content %}
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
+	{% for message in app.flashes('message')%}
+		<div class='alert alert-success'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes('warning')%}
+		<div class='alert alert-warning'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes(' danger')%}
+		<div class=' alert alert-danger'>{{message}}</div>
+	{% endfor %}
+
+	<div class="container-fluid padding head-produit mt-2  "></div>
+	<div class="container-product">
+		<div class="row ">
+			<div class="col-sm-10 col-10 col-md-5 row-product">
+				<div id="carouselExampleIndicators-1" class="carousel slide carousel-fade" data-bs-ride="carousel">
+					<ol class="carousel-indicators"></ol>
+
+					<div class="carousel-inner caro-product" data-interval="8000">
+
+						{% set images =  article.attachments[0].image %}
+						{% set alt =  article.imageAlt %}
+						{% for article in article.attachments %}
+
+							<div id="item-produit" {% if article.image is same as (images) %} class="carousel-item active  " {% else %} class="carousel-item  " {% endif %}>
+								<div class="product-image">
+
+									<figure><img class="image-zoom" src="{{ asset ('/images/attachments/' ~ article.image ) | imagine_filter('article')}}" alt="{{ alt}}"></figure>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+					<a class="carousel-control-prev" href="#carouselExampleIndicators-1" role="button" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">{% trans %}Previous{% endtrans %}</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleIndicators-1" role="button" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">{% trans %}Next{% endtrans %}</span>
+					</a>
+				</div>
+				<div class="row ">
+
+
+					{% for article in article.attachments %}
+						<div class="col-3 row-product-min">
+							<div class="product-image caro-product">
+
+								<figure><img data-bs-target="#carouselExampleIndicators-1" data-bs-slide-to=" {{ loop.index - 1 }}" class="active  " src="{{ asset ('/images/attachments/' ~ article.image ) }}" alt=" "></figure>
+
+							</div>
+						</div>
+
+					{% endfor %}
+				</div>
+
+			</div>
+			<div class="col-sm-10 col-10 col-md-6 row-product  discreption">
+				<div class="row pt-2">
+					<div class="col-12 text-center  ">
+						<h1 class="fofo">{{article.nom}}</h1>
+					</div>
+				</div>
+				<div class="row pt-2">
+					<div class="col-6 ">
+						<p class="fo">
+							<i class="fas fa-hand-holding-usd font"></i>
+							{% trans %}Prix{% endtrans %}HT</p>
+						<p class="fo">
+							<i class="fas fa-money-check-alt font"></i>
+							{% trans %}Prix{% endtrans %}TTC</p>
+						<p class="fo">
+							<i class="fas fa-sort-numeric-up font"></i>
+							{% trans %}Quantité{% endtrans %}</p>
+					</div>
+					<div class="col-6">
+						<p class="fo">{{article.prix  }}$</p>
+						<p class="fo">{{article.prix | tva (article.tvaMultiplication)  }}$</p>
+						<form class="fo" action="{{ path('ajouter', {'id': article.id}) }} " method="get">
+							<select name="qte" class="span1">
+								{% for i in 1..10 %}
+									<option value="{{i}}">{{i}}
+									{% endfor %}
+								</option>
+							</select>
+						</form>
+
+
+					</div>
+					<div class="row pt-2">
+						<div class="col-12 text-center">
+							<div class="container-b">
+								<a href="{{ path('ajouter', {'id': article.id}) }}" class="btn btn1 rounded ajoute-panier">
+									<i class="fas fa-shopping-cart"></i>
+									{% trans %}Ajoute au panier{% endtrans %}</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row pt-2">
+					<div class="col-12 text-center">
+						<h1 class="fofo">{% trans %}Spécifications{% endtrans %}</h1>
+					</div>
+				</div>
+				<div class="row pt-2 ">
+					<div class="col-6 color ">
+						<p class="fo">
+							<i class="fas fa-palette font"></i>
+							{% trans %}Couleur{% endtrans %}</p>
+						<p class="fo">
+							<i class="fas fa-glasses font"></i>
+							{% trans %}Style{% endtrans %}</p>
+						<p class="fo">
+							<i class="fas fa-venus-mars font"></i>
+							{% trans %}Sexe{% endtrans %}</p>
+						<p class="fo">
+							<i class="fas fa-copyright font"></i>
+							{% trans %}Marque{% endtrans %}</p>
+						<p class="fo">
+							<i class="fas fa-shapes font"></i>
+							{% trans %}Forme{% endtrans %}</p>
+						<p class="fo">
+							<i class="fas fa-weight-hanging font"></i>
+							{% trans %}Poids{% endtrans %}</p>
+
+					</div>
+					<div class="col-6 color">
+						<p class="fo">{{article.couleurs }}</p>
+						<p class="fo">{{article.style }}</p>
+						<p class="fo">{{article.categorie}}</p>
+						<p class="fo">{{article.marques }}</p>
+						<p class="fo">{{article.formes }}</p>
+						<p class="fo">{{article.poids}}
+							gr</p>
+
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+	<div class="container-commentaire">
+		<div class="row  ">
+			<div class="col-sm-10 col-10 col-md-5 row-product ">
+				<div class="row ">
+					<div class="col-12 text-center">
+						<h1 class="fofo">{% trans %}Description{% endtrans %}</h1>
+					</div>
+					<div class="col-12 comment-content">
+						{{article.description | raw}}
+					</div>
+				</div>
+
+			</div>
+			{% if article.comments.key is  not same as null %}
+				<div class="col-sm-10 col-10 col-md-6 row-product  " id="scrall">
+					<h1 class="fofo text-center">{% trans %}Avis{% endtrans %}</h1>
+
+
+					{% for comment in article.comments %}
+						{% if comment.parent == null %}
+							<div class="for-comment">
+
+								<p class="sambre">{% trans %}Publie par{% endtrans %}
+									:
+									{% if  comment.userComment %}
+										{{comment.userComment.nom}}
+									{% else %}
+										{{comment.nickname}}
+									{% endif %}
+									Le{{comment.createdAt | date("d/m/y H:i")}}
+								</p>
+								<div class="comment-content ">{{comment.content | raw }}</div>
+								<div class=" replay">
+
+									<p class="sambre">{% trans %}Reponse{% endtrans %}
+										:</p>
+									{% for replay in comment.replies %}
+										<p class="sambre">Publie par :
+											{% if  replay.userComment %}
+												{{replay.userComment.nom}}
+											{% else %}
+												{{replay.nickname}}
+											{% endif %}
+											{% trans %}Le{% endtrans %}{{replay.createdAt | date("d/m/y H:i")}}</p>
+										<div>{{replay.content | raw }}</div>
+
+									{% endfor %}
+									<a href="#ajout-commentaire" data-reply data-id="{{comment.id}} " class="repondre">{% trans %}repondre{% endtrans %}</a>
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+
+				</div>
+
+			</div>
+		</div>
+		<div class="container-commentaire">
+			<div class="row  ">
+				<div class="col-md-8 col-sm-8 col-8 mx-auto  p-2 row-product  caro-product  " id="ajout-commentaire">
+					<h1 class="fofo text-center">{% trans %}Ajoute Un Avis{% endtrans %}</h1>
+					{{ form_start (commentForm,  {'attr': {'novalidate' : 'novalidate'}})  }}
+					<div class="row  ">
+						<div class="col-md-5 ">
+							<div class="form-input">
+								{{ form_row(commentForm.email)}}
+							</div>
+						</div>
+						<div class="col-md-5 ">
+							<div class="form-input">
+								{{ form_row(commentForm.nickname)}}
+							</div>
+						</div>
+					</div>
+					<div class="form-input ">
+						{{ form_row(commentForm.content) }}
+					</div>
+
+					{{ form_row(commentForm.rgpd)}}
+
+					<div class="mb-3 login">
+						<button type="submit" id='register'>
+							{% trans %}Envoyer{% endtrans %}
+						</button>
+					</div>
+					{{ form_end(commentForm) }}
+				</div>
+			</div>
+
+		</div>
+
+	{% else %}
+		<div class="container-commentaire">
+			<div class="row  ">
+				<div class="col-md-8 col-sm-8 col-8 mx-auto  p-2 row-product caro-product text-center">
+					<h1 class="fofo">{% trans %}Ajoute Un Avis{% endtrans %}</h1>
+					{{ form_start (commentForm,  {'attr': {'novalidate' : 'novalidate'}})  }}
+					<div class="row  ">
+						<div class="col-md-5 ">
+							<div class="form-input">
+								{{ form_row(commentForm.email)}}
+							</div>
+						</div>
+						<div class="col-md-5 ">
+							<div class="form-input">
+								{{ form_row(commentForm.nickname)}}
+							</div>
+						</div>
+					</div>
+					<div class="form-input ">
+						{{ form_row(commentForm.content) }}
+					</div>
+
+					{{ form_row(commentForm.rgpd)}}
+
+					<div class="mb-3 login">
+						<button type="submit" id='register'>
+							{% trans %}Envoyer{% endtrans %}
+						</button>
+					</div>
+					{{ form_end(commentForm) }}
+				</div>
+			</div>
+		</div>
+	{% endif %}
+	<div class="container-fluid padding">
+		<div class="row welcome text-center">
+			<div class="col-12 ">
+				<h1 class="fofo">{% trans %}Voire Produits Similaire{% endtrans %}</h1>
+
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+
+			{% for marque in marques %}
+				{% if marque.marques is  not same as null %}
+					<article class="col-lg-3 col-md-4 col-sm-6">
+						<div class="product-grid">
+							<div class="product-image">
+								<a href="{{path('article', {'slug': marque.slug})}}">
+									<figure><img class="pic-1" src="{{ asset ('/images/attachments/' ~ marque.attachments[0].image )}}" alt=""></figure>
+									<figure><img class="pic-2" src="{{ asset ('/images/attachments/' ~ marque.attachments[1].image)}}" alt=""></figure>
+
+
+								</a>
+								<ul class="social text-center">
+									<li>
+										<a href="{{path('article', {'slug': marque.slug})}}" data-tip="Quick View">
+											<i class="fa fa-search"></i>
+										</a>
+									</li>
+
+
+								</ul>
+								<span class="product-new-label">{% trans %}Nouveau{% endtrans %}</span>
+								<span class="product-discount-label">{{marque.marques}}</span>
+							</div>
+
+							<div class="product-content">
+								<h3 class="title">
+									<a href="{{path('article', {'slug': marque.slug})}}">{{marque.nom}}</a>
+
+								</h3>
+								<a href="#" class="categ">{% trans %}Pour
+									{% endtrans %}:
+									{{article.categorie}}</a>
+								<div class="price">{{marque.prix | tva (marque.tvaMultiplication) }},00€
+
+								</div>
+								<button class="add-to-cart" href="{{ path('ajouter', {'id': article.id}) }}">{% trans %}Ajouter au panier{% endtrans %}</button>
+							</div>
+						</div>
+					</article>
+				{% endif %}
+			{% endfor %}
+
+		</div>
+	</div>
+
+	<div class="container-fluid padding footer-produit mt-2 "></div>
+	<script>
+		window.onload = () => { // On met un écouteur d'évènements sur tous les boutons répondre
+document.querySelectorAll("[data-reply]").forEach(element => {
+element.addEventListener("click", function () {
+document.querySelector("#comments_parentid").value = this.dataset.id;
+});
+});
+}
+	</script>
+{% endblock %}
