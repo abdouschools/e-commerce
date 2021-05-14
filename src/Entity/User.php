@@ -71,7 +71,7 @@ class User implements UserInterface
 
 
     /**
-     * @ORM\OneToMany(targetEntity=Comments::class, mappedBy="userComment", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Comments::class, mappedBy="userComment", cascade={"persist", "remove"})
      */
     private $comments;
 

@@ -24,15 +24,15 @@ class MarquesController extends AbstractController
         $message = $translator->trans('pas de  style avec cette recherche');
 
         $marques = $this->getDoctrine()->getRepository(Marques::class)->find($id);
-        if (!$marques) {
-            throw $this->createNotFoundException($message);
-        }
         $article = $marques->getArticle();
         $articles = $paginator->paginate(
             $article, //hna hatina les articles li jabnahom
             $request->query->getInt('page', 1), //hna hatina numero ta la page w 1 aw darnah la malgahach yhat 1 par default
-            6 // hna ma3naha hatana 4 article par page
+            2 // hna ma3naha hatana 4 article par page
         );
+        if (!$marques) {
+            throw $this->createNotFoundException($message);
+        }
 
 
         return $this->render('marques/show.html.twig', [
@@ -59,10 +59,13 @@ class MarquesController extends AbstractController
         ]);
     }
 
-    public function showAlll()
+    public function showAlll(TranslatorInterface  $translator)
     {
         $marques = $this->getDoctrine()->getRepository(Marques::class)->findAll();
-
+        $message = $translator->trans('sorry no style for the moment');
+        if (!$marques) {
+            throw $this->createNotFoundException($message);
+        }
 
         return $this->render("marques/showalll.html.twig", [
             'marques' => $marques,

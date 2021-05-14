@@ -21,14 +21,13 @@ class PanierController extends AbstractController
     /**
      * @Route("/ajouter/{id<\d+>}", name="ajouter")
      */
-    public function ajouter($id, SessionInterface $session, Request $request, TranslatorInterface  $translator)
+    public function ajouter($id, SessionInterface $session, Request $request)
     {
         if (!$session->has('panier')) $session->set('panier', array());
         $panier = $session->get('panier');
         if (array_key_exists($id, $panier)) {
             if ($request->get('qte') != null) $panier[$id] = $request->get('qte');
-            $message = $translator->trans('Article ajouté');
-            $this->addFlash('message', $message);
+            $this->addFlash('message', 'Article ajouté');
         } else {
             if ($request->get('qte') != null) $panier[$id] = $request->get('qte');
             else
@@ -43,7 +42,7 @@ class PanierController extends AbstractController
     /**
      * @Route("/panier", name="panier")
      */
-    public function panierAction(SessionInterface $session)
+    public function panierAction(SessionInterface $session, TranslatorInterface  $translator)
     {
         if (!$session->has('panier')) $session->set('panier', array());
         $em = $this->getDoctrine()->getManager();
@@ -53,7 +52,10 @@ class PanierController extends AbstractController
         $commande = array();
         $articles = $em->getRepository(Articles::class)->findArray(array_keys($session->get('panier')));
 
-
+        $message = $translator->trans('pas de  produit dans votre panier');
+        if (!$articles) {
+            throw $this->createNotFoundException($message);
+        }
         foreach ($articles as $produit) {
             $prixHT = ($produit->getPrix() * $panier[$produit->getId()]);
             $prixTTC = ($produit->getPrix() * $panier[$produit->getId()] / $produit->getTvaMultiplication());
@@ -98,11 +100,14 @@ class PanierController extends AbstractController
      * @IsGranted("ROLE_USER")
      * @Route("/livraison", name="livraison")
      */
-    public function livraison(Request $request)
+    public function livraison(Request $request, TranslatorInterface  $translator)
     {
         $adresse = new UtilisateursAdresses();
         $utilisateur = $this->getUser();
-
+        $message = $translator->trans('connecte vous pour continue');
+        if (!$utilisateur) {
+            throw $this->createNotFoundException($message);
+        }
 
         $form = $this->createForm(UtilisateursAdressesType::class, $adresse);
 
@@ -126,13 +131,13 @@ class PanierController extends AbstractController
      * @IsGranted("ROLE_USER")
      * @Route("/livraisonAdresseSuppresion/{id<\d+>}", name="livraisonAdresseSuppresion")
      */
-    public function livraisonAdresseSuppresion($id)
+    public function livraisonAdresseSuppresion($id, TranslatorInterface  $translator)
     {
         $em = $this->getDoctrine()->getManager();
         $adresse = $em->getRepository(UtilisateursAdresses::class)->find($id);
-
+        $message = $translator->trans('adresse non trouver');
         if (!$adresse) {
-            $this->addFlash('message', 'adresse non trouver');
+            throw $this->createNotFoundException($message);
         }
         $em->remove($adresse);
         $em->flush();

@@ -1,7 +1,7 @@
 {% extends "layout.html.twig" %}
 
 {% block title %}
-	Griffa! tous types et marques de lunettes à un prix imbattable
+	Home
 {% endblock %}
 
 {% block content %}
@@ -17,16 +17,16 @@
 	{% for message in app.flashes(' danger')%}
 		<div class=' alert alert-danger'>{{message}}</div>
 	{% endfor %}
-	<div class="container-fluid padding">
+	<section class="container-fluid padding">
 		<div class="row welcome text-center">
 			<div class="col-12 ">
-				<h1 class='display-4 index-h1'>{% trans %}Styles multiples{% endtrans %}</h1>
+				<h1 class='display-4'>{% trans %}Styles multiples{% endtrans %}</h1>
 				<hr>
 			</div>
 		</div>
-	</div>
+	</section>
 
-	<div class="row kind ">
+	<section class="row kind ">
 		{% for style in styles %}
 			<div class="col-xl-2 col-md-4 col-sm-6 col-4  center ">
 				<div class=" banner">
@@ -37,33 +37,33 @@
 			</div>
 		{% endfor %}
 
-	</div>
+	</section>
 	<section class="container-fluid padding">
 		<div class="row welcome text-center">
 			<div class="col-12 ">
-				<h1 class='display-4 index-h1'>{% trans %}Pour Tous Les Sexes Et Tous Les Ages{% endtrans %}</h1>
+				<h1 class='display-4'>{% trans %}Pour Tous Les Sexes Et Tous Les Ages{% endtrans %}</h1>
 				<hr>
 			</div>
 		</div>
 	</section>
 
-	<div class="row justify-content-around">
+	<section class="row justify-content-around">
 		<div class="col-lg-2 col-md-2 col-sm-6 col-5 rounded-circle   gender gender1" onclick="location.href='{{ path('categorie-show', {'id': mixte.id}) }}'"></div>
 		<div class="col-lg-2 col-md-2 col-sm-6  col-5 rounded-circle   gender gender2" onclick="location.href='{{ path('categorie-show', {'id': enfant.id}) }}'"></div>
 		<div class="col-lg-2 col-md-2 col-sm-6 col-5 rounded-circle gender gender3" onclick="location.href='{{ path('categorie-show', {'id':femme.id}) }}'"></div>
 		<div class="col-lg-2 col-md-2 col-sm-6  col-5 rounded-circle  gender gender4" onclick="location.href='{{ path('categorie-show', {'id': homme.id}) }}'"></div>
-	</div>
+	</section>
 
 	<section class="container-fluid padding">
 		<div class="row welcome text-center">
 			<article class="col-12">
-				<h1 class='display-4 index-h1'>{% trans %}Nouveautés{% endtrans %}</h1>
+				<h1 class='display-4'>{% trans %}Nouveautés{% endtrans %}</h1>
 				<hr>
 				<p>{% trans %}Offrez-vous les dernières nouveautés de lunettes de vue parmi toutes les collections de marques reconnues.										Chaque modèle de Nouveauté lunette de vue respecte les critères de qualité et de performances que vous en exigez. Les modèles OFP01811 et MF1804 figurent parmi les plus connus du grand public. À savoir que la Nouveauté lunette de vue s’adapte à tous les types de verres.{% endtrans %}</p>
 			</article>
 		</div>
 	</section>
-	<div class="container">
+	<section class="container">
 		<div class="row">
 			{% for article in articles %}
 				<div class="col-lg-3 col-md-4 col-sm-6">
@@ -105,41 +105,43 @@
 				</div>
 			{% endfor %}
 		</div>
-	</div>
-	<div class="container-fluid padding">
+	</section>
+	<section class="container-fluid padding">
 		<div class="row welcome text-center">
 			<div class="container-b">
 				<a href="{{path ('filter')}}" class="btn btn1 rounded">{% trans %}Voire Plus de Produits{% endtrans %}</a>
 			</div>
 		</div>
-	</div>
+	</section>
 
 
 	<section class="container-fluid padding">
 		<div class="row welcome text-center">
 			<div class="col-12 ">
-				<h1 class='display-4 index-h1'>{% trans %}Actualite{% endtrans %}</h1>
+				<h1 class='display-4'>{% trans %}Actualite{% endtrans %}</h1>
 				<hr>
 			</div>
 		</div>
 	</section>
-	<article class="site_container">
-		<div class="article-container">
+	<section class="site_container">
+		<article class="article-container">
 			{% for actualite in actualite %}
-				<section class="article-card" onclick="location.href='{{path('actualite-show', {'slug': actualite.slug})}}'">
+				<article class="article-card">
 					<figure class="article-image">
 						<img class="ar-img" src="{{ asset ('/images/actualite/' ~ actualite.image ) | imagine_filter('article1') }}" alt="{{actualite.alt}}">
 					</figure>
 					<div class="article-content">
-						<a href="" class="cart-categorie">Griffa</a>
+						<a href="" class="cart-categorie">Beauty Eyes</a>
 						<h3 class="card-title">{{actualite.titre}}</h3>
-						<div class="card-excerpt ">
-							{{actualite.accrouche | raw |  slice(5 , 120) | raw }}...<a class="lire" href="{{path('actualite-show', {'slug': actualite.slug})}}">Lire La Suite</a>
-						</div>
+						<p class="card-excerpt ">
+							<font color="#6b82a7">{{actualite.accrouche |  slice(0 , 120) | raw }}<a class="lire" href="{{path('actualite-show', {'slug': actualite.slug})}}">...Lire La Suite</a>
+							</font>
+						</p>
 					</div>
-				</section>
+
+				</article>
 			{% endfor %}
 
-		</div>
-	</article>
+		</article>
+	</section>
 {% endblock %}

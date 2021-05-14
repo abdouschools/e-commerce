@@ -3,8 +3,7 @@
 	<meta name="description " content="{{marques.nomMarque}} lunettes :lunettes contre la lumiere bleue, de soleil et de vue design directement de l'usine au consommateurs. trouvez votre style ">
 {% endblock %}
 {% block title %}
-	Griffa!Lunettes
-	{{marques.nomMarque}}
+	{% trans %}Marques{% endtrans %}
 {% endblock %}
 {% block carousel %}
 	{% for flashError in app.flashes('verify_email_error') %}
@@ -31,13 +30,13 @@
 	{{ render(controller(
         'App\\Controller\\MarquesController::showalll'
     )) }}
-	<div class="col-md-8 sticky">
+	<div class="col-md-8 " id="sticky">
 		<div class="row">
 			{% if marques.article.key is  not same as null %}
 				{% for article in marques.article %}
-					<div class=" col-lg-4 col-md-6 col-sm-6 ">
-						<div class="product-grid">
-							<div class="product-image">
+					<div class="  col-md-4 col-sm-6 ">
+						<article class="product-grid">
+							<section class="product-image">
 								<a href="{{path('article', {'slug': article.slug})}}">
 									<figure><img class="pic-1" src="{{ asset ('/images/attachments/' ~ article.attachments[0].image )}}" alt="{{article.imageAlt}}"></figure>
 									<figure><img class="pic-2" src="{{ asset ('/images/attachments/' ~ article.attachments[1].image)}}" alt="{{article.imageAlt}}"></figure>
@@ -55,9 +54,9 @@
 								</ul>
 								<span class="product-new-label">{{article.style}}</span>
 								<span class="product-discount-label">{{article.marques}}</span>
-							</div>
+							</section>
 
-							<div class="product-content">
+							<section class="product-content">
 								<h3 class="title">
 									<a href="{{path('article', {'slug': article.slug})}}">{{article.nom}}</a>
 
@@ -69,8 +68,8 @@
 
 								</div>
 								<a class="add-to-cart" href="{{ path('ajouter', {'id': article.id}) }}">{% trans %}Ajouter au panier{% endtrans %}</a>
-							</div>
-						</div>
+							</section>
+						</article>
 
 					</div>
 				{% endfor %}

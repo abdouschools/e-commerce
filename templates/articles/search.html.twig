@@ -1,12 +1,23 @@
 {% extends "layout.html.twig" %}
 
 {% block title %}
-	lunettes Griffa
-
+	{% trans %}Filtrer{% endtrans %}
 {% endblock %}
+
 {% block content %}
-	<article class="row search">
-		<section class="col-md-3 sticky">
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
+
+	{% for message in app.flashes('warning')%}
+		<div class='alert alert-warning'>{{message}}</div>
+	{% endfor %}
+	{% for message in app.flashes(' danger')%}
+		<div class=' alert alert-danger'>{{message}}</div>
+	{% endfor %}
+	<article class="row">
+
+		<section class="col-md-3 " id="sticky">
 			{{form_start (form )}}
 			<div class="row">
 
@@ -60,7 +71,7 @@
 			{{form_end (form)}}
 		</section>
 
-		<section class="col-md-8 sticky">
+		<section class="col-md-8 " id="sticky">
 			<div class="row ">
 				{% for message in app.flashes('message')%}
 					<div class='alert alert-success'>{{message}}</div>

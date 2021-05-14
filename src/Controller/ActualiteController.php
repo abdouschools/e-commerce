@@ -16,14 +16,16 @@ class ActualiteController extends AbstractController
     /**
      * @Route("/actualites", name="actualites")
      */
-    public function showAll(Request $request, PaginatorInterface $paginator)
+    public function showAll(Request $request, PaginatorInterface $paginator, TranslatorInterface $translator)
     {
         $actualite = $this->getDoctrine()->getRepository(Actualite::class)->findAll();
-
-
+        $message = $translator->trans("désolé pas d'article pour le moment");
+        if (!$actualite) {
+            throw $this->createNotFoundException($message);
+        }
         $articles = $paginator->paginate(
             $actualite, //hna hatina les articles li jabnahom
-            $request->query->getInt('page', 1), //hna hatina numero ta la page w 1 aw darnah la malgahach 
+            $request->query->getInt('page', 1), //hna hatina numero ta la page w 1 aw darnah la malgahach yhat 1 par default
             8   // hna ma3naha hatana 4 article par page
         );
         return $this->render("actualite/showall.html.twig", [

@@ -3,9 +3,10 @@
 	<meta name="description " content="{% for marque in marques %}{{marque.nomMarque}}-{% endfor %}lunettes contre la lumiere bleue, de soleil et de vue design directement de l'usine au consommateurs. trouvez votre style">
 {% endblock %}
 {% block title %}
-	Griffa plusieurs marques de luxe
+	{% trans %}Marques{% endtrans %}
 {% endblock %}
 {% block carousel %}{% endblock %}
+
 {% block content %}
 	{% for flashError in app.flashes('verify_email_error') %}
 		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
@@ -21,14 +22,19 @@
 	{% endfor %}
 
 	<div class="container-marques">
-
-		<div class="row marques">
+		<div class="row">
 			{% for marque in marques %}
-				<div class="col-md-3 col-sm-12 col-12 ">
-					<div class="product-grid marques " onclick="location.href='{{path('marque-show', {'id': marque.id})}}'" style=" background-image: url(../image/mar{{loop.index}}.jpg)"></div>
+				<div class="col-md-3 col-sm-12 col-12">
+
+
+					<div class="product-grid marques " onclick="location.href='{{path('marque-show', {'id': marque.id})}}'" style=" background-image: url(../image/mar{{loop.index}}.jpg)" alt="prada carrera hogo boss tom ford marques"></div>
+
+
 				</div>
 			{% endfor %}
 
 		</div>
 	</div>
+
+
 {% endblock %}

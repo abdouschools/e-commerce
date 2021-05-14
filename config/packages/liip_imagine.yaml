@@ -3,6 +3,11 @@ liip_imagine:
   # valid drivers options include "gd" or "gmagick" or "imagick"
   driver: "gd"
   filter_sets:
+    carre:
+      filters:
+        fixed:
+          width: 120
+          height: 90
     article:
       filters:
         watermark:

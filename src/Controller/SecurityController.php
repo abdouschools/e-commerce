@@ -53,7 +53,38 @@ class SecurityController extends AbstractController
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 
-
+    /**
+     *  /**
+     * @IsGranted("ROLE_USER")
+     * @Route("/promot/{id<\d+>}", name="app_promotAdmin")
+     */
+    public function promotToAdmin(Request $request, $id, TranslatorInterface  $translator) //hna rah ndiro une function li tmad les roles b un modepass li howa la variable $secret
+    {
+        $secret = '123123aA'; //hada lmot d pass
+        $form = $this->createForm(PromtAdminType::class);
+        $form->handleRequest($request);
+        $manager = $this->getDoctrine()->getManager();
+        $users = $manager->getRepository(User::class)->find($id);
+        $message = $translator->trans("utilisateur non trouvé");
+        if (!$users) {
+            throw $this->createNotFoundException($message);
+        }
+        if ($form->isSubmitted() && $form->isValid()) { //ida b3atna form w ida kan valid
+            if ($form->get('secret')->getData() != $secret) //ida  jibana secret mi fi get w jibana data li fih wach maktoub  mbadal ala $secret li hna alors
+            {
+                $message = $translator->trans('votre code secret est faux');
+                throw $this->createNotFoundException($message); //hna golnalo yhat had message errur
+            }
+            $users->setRoles(["ROLE_ADMIN"]); //hna ki ywali kayan ga3 chotot nmadolo le role admin
+            $manager->persist($users);
+            $manager->flush();
+            return $this->redirectToRoute('home');
+        }
+        return $this->render('security/promotAdmin.html.twig', [
+            'users' => $users, //hna nah naba3toha wnasta3mloha f la vue
+            'form' => $form->createView() //matansawh l form taba3to la vue
+        ]);
+    }
 
     /**
      * @Route("/oubli-pass", name="app_forgotten_password")
@@ -95,7 +126,7 @@ class SecurityController extends AbstractController
                 ->setTo($user->getEmail())
                 //
                 ->setBody(
-                    "Bonjour une demande de réinitialisation de mot de passe a été faite pour le site lunetteriegriffa.fr veuillez cliquer sur le lien pour réinitialiser le mot de passe: " . $url
+                    "Bonjour une demande de réinitialisation de mot de passe a été faite pour le site beautyeyes.com veuillez cliquer sur le lien pour réinitialiser le mot de passe: " . $url
                 );
             //en envoie lemail
             $mailer->send($message);
@@ -116,7 +147,7 @@ class SecurityController extends AbstractController
         //chercher lutilisateur avec le token fournie 
         $user = $this->getDoctrine()->getRepository(User::class)->findOneBy(['reset_token' => $token]);
         if (!$user) {
-            $this->addFlash('warning', 'token inconnu');
+            $this->addFlash('danger', 'token inconnu');
             return $this->redirectToRoute('app_login');
         }
         if ($request->isMethod('POST')) {

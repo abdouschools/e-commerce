@@ -14,6 +14,21 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class StylesController extends AbstractController
 {
 
+
+    /**
+     * @Route("/styles", name="styles")
+     */
+    public function showAll()
+    {
+        $styles = $this->getDoctrine()->getRepository(Styles::class)->findAll();
+
+        return $this->render("styles/showall.html.twig", [
+            'styles' => $styles,
+
+
+        ]);
+    }
+
     /**
      * @Route("/style-show/{id<\d+>}", name="style-show")
      */

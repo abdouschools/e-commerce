@@ -1,9 +1,9 @@
 {% extends "layout.html.twig" %}
 {% block meta %}
-	<meta name="description " content=" 1ère sur l'info. Retrouvez toute l'actualité , en photo et en vidéo sur lunetteriegriffa news, sociale, économique, sportive et internationale.">
+	<meta name="description " content=" 1ère sur l'info. Retrouvez toute l'actualité , en photo et en vidéo sur beauty eyes news, sociale, économique, sportive et internationale.">
 {% endblock %}
 {% block title %}
-	{% trans %}l'actualité des lunettes ,tout savoir sur la nouveauté des lunettes{% endtrans %}
+	{% trans %}Actualite{% endtrans %}
 {% endblock %}
 
 {% block content %}
@@ -22,7 +22,7 @@
 	<div class="container-fluid padding">
 		<div class="row welcome text-center">
 			<div class="col-12 ">
-				<h1 class='display-4 index-h1'>{% trans %}Soyez Toujours à Jour{% endtrans %}</h1>
+				<h1 class='display-4'>{% trans %}Soyez Toujours à Jour{% endtrans %}</h1>
 				<hr>
 			</div>
 		</div>
@@ -31,18 +31,17 @@
 		<div class="article-container">
 			{% if actualite.key is  not same as null %}
 				{% for actualite in actualite %}
-					<section class="article-card" onclick="location.href='{{path('actualite-show', {'slug': actualite.slug})}}'">
+					<section class="article-card">
 						<figure class="article-image">
 							<img class="ar-img" src="{{ asset ('/images/actualite/' ~ actualite.image ) | imagine_filter('article1') }}" alt="{{actualite.alt}}">
 						</figure>
 						<div class="article-content">
-							<a href="" class="cart-categorie">Griffa</a>
+							<a href="" class="cart-categorie">Beauty Eyes</a>
 							<h3 class="card-title">{{actualite.titre}}</h3>
-
-							<div class="card-excerpt ">
-								{{actualite.accrouche |  slice(0 , 120) | raw }}<a class="lire" href="{{path('actualite-show', {'slug': actualite.slug})}}">...Lire La Suite</a>
-
-							</div>
+							<p class="card-excerpt ">
+								<font color="#6b82a7">{{actualite.accrouche |  slice(0 , 120) | raw }}<a class="lire" href="{{path('actualite-show', {'slug': actualite.slug})}}">...Lire La Suite</a>
+								</font>
+							</p>
 						</div>
 
 					</section>
@@ -51,7 +50,7 @@
 				<div class="container-fluid padding">
 					<div class="row welcome text-center">
 						<div class="container-b">
-							<a class="btn btn1 rounded">{% trans %}Aucun article publié pour le moment{% endtrans %}</a>
+							<button class="btn btn1 rounded">{% trans %}Aucun article publié pour le moment{% endtrans %}</button>
 						</div>
 					</div>
 				</div>

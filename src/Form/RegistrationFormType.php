@@ -5,7 +5,6 @@ namespace App\Form;
 
 use App\Entity\User;
 use App\Entity\UtilisateursAdresses;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -67,7 +66,6 @@ class RegistrationFormType extends AbstractType
                 'attr' => ['placeholder' => "Email"] //wahna golnalo yaktabana f label had laktiba
 
             ])
-
 
             ->add('AccepterLesTermes', CheckboxType::class, [
                 'mapped' => false,

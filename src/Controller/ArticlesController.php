@@ -67,7 +67,7 @@ class ArticlesController extends AbstractController
             $em->persist($comment);
             $em->flush();
 
-            $this->addFlash('message', 'commentaire envoyé');
+            $this->addFlash('message', 'votre comment et envoyer');
             return $this->redirectToRoute('article', ['slug' => $article->getSlug()]);
         }
 
@@ -79,7 +79,34 @@ class ArticlesController extends AbstractController
 
         ]);
     }
+    /**
+     * @Route("/articles", name="articles")
+     */
+    public function showAll(Request $request, PaginatorInterface $paginator, Session $session, TranslatorInterface $translator)
+    {
+        $donnes = $this->getDoctrine()->getRepository(Articles::class)->findAll();
+        if ($session->has('panier')) {
+            $panier = $session->get('panier');
+        } else {
+            $panier = false;
+        }
+        $message = $translator->trans("pas d'article pour le moment");
+        if (!$donnes) {
+            throw $this->createNotFoundException($message);
+        }
 
+        $articles = $paginator->paginate(
+            $donnes, //hna hatina les articles li jabnahom
+            $request->query->getInt('page', 1), //hna hatina numero ta la page w 1 aw darnah la malgahach yhat 1 par default
+            4   // hna ma3naha hatana 4 article par page
+        );
+        return $this->render("articles/showall.html.twig", [
+            'articles' => $articles,
+            'panier' => $panier,
+
+
+        ]);
+    }
 
 
     /**

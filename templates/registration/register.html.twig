@@ -45,6 +45,10 @@
 					</div>
 					<div class="form-input">
 
+						{{ form_row(registrationForm.principaleAdresse) }}
+					</div>
+					<div class="form-input">
+
 						{{ form_row(registrationForm.plainPassword, {
                         label: 'Password' 
                          }) }}
@@ -55,7 +59,7 @@
 						</button>
 					</div>
 
-					{{ form_row (registrationForm.AccepterLesTermes) }}
+					{{ form_row(registrationForm.AccepterLesTermes) }}
 					<hr class="my-4">
 
 					<div class="text-center mb-2">

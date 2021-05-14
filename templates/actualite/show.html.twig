@@ -4,9 +4,7 @@
 {% endblock %}
 
 {% block title %}
-	Griffa
-	{{actualite.titre}}
-
+	{% trans %}Actualite{% endtrans %}
 {% endblock %}
 
 {% block content %}
@@ -27,7 +25,7 @@
 			<section class="row ">
 				<div class="col-sm-10 col-10 col-md-5 row-product">
 					<div class="carousel-inner caro-product">
-						<div class="carousel-item active item-produit">
+						<div id="item-produit" class="carousel-item active  " class="carousel-item  ">
 							<div class="product-image">
 
 								<figure><img class="image-zoom" src="{{ asset ('/images/actualite/' ~ actualite.image ) }}" alt="{{actualite.alt}}"></figure>
@@ -39,12 +37,12 @@
 				<div class="col-sm-10 col-10 col-md-6  row-product  actualite-tit-acr">
 					<div class="row pt-2">
 						<div class="col-12 text-center  ">
-							<h1 class="index-h1">{{actualite.titre}}</h1>
+							<h1 class="actualite-h1">{{actualite.titre}}</h1>
 						</div>
 					</div>
 					<div class="row pt-2">
 						<div class="col-12 text-center  ">
-							<div class='fofo'>{{actualite.accrouche | raw}}</div>
+							<h4 class='fofo'>{{actualite.accrouche | raw}}</h4>
 							<p id="sambre">
 								{% trans %}Publie{% endtrans %}
 								{% trans %}Le{% endtrans %}
@@ -75,7 +73,7 @@
 		<aside class="container-fluid padding">
 			<div class="row welcome text-center">
 				<div class="col-12 ">
-					<h2 class='display-4'>{% trans %}Pas d'article Pour Le Moment{% endtrans %}</h2>
+					<h1 class='display-4'>{% trans %}Pas d'article Pour Le Moment{% endtrans %}</h1>
 					<hr>
 				</div>
 			</div>

@@ -533,11 +533,7 @@
         <source>Pas De Produits Avec Ces Critères</source>
         <target>No Products With These Criteria</target>
       </trans-unit>
-        <trans-unit id="Vous avez indiqué un mauvais mot de passe" resname="Vous avez indiqué un mauvais mot de passe">
-        <source>Vous avez indiqué un mauvais mot de passe</source>
-        <target>You entered the wrong password</target>
-      </trans-unit>
-        
+    
     </body>
   </file>
 </xliff>

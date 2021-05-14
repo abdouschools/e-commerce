@@ -70,7 +70,7 @@ class Comments
     private $replies;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="comments", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=User::class, inversedBy="comments", cascade={"persist", "remove"})
      */
     private $userComment;
 
