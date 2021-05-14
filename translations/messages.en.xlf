@@ -587,12 +587,20 @@
         <source>une erreur est survenue</source>
         <target>An error has occurred</target>
       </trans-unit>
-         
+            <trans-unit id="choisissez un magasin à proximité et calculez votre itinéraire" resname="choisissez un magasin à proximité et calculez votre itinéraire">
+        <source>choisissez un magasin à proximité et calculez votre itinéraire</source>
+        <target>choose a store nearby and calculate your route</target>
+      </trans-unit>   
+      <trans-unit id="Accepter les termes" resname="Accepter les termes">
+        <source>Accepter les termes</source>
+        <target>Accept the terms</target>
+      </trans-unit>
+       <trans-unit id="Article ajoutée" resname="Article ajouté">
+        <source>Article ajouté</source>
+        <target>Item added</target>
+      </trans-unit>
 
-
-
-
-
+    
     </body>
   </file>
 </xliff>

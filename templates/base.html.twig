@@ -1,18 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8">
 		<meta
 		name='viewport' content='width= device-width , initial-scall=1'>
+		{#cookies#}
+		<script type="text/javascript" src="{{ asset ('tarteaucitron/tarteaucitron.js')}}"></script>
+
+		<script type="text/javascript">
+			tarteaucitron.init({
+"privacyUrl": "https://lunetteriegriffa.fr/mentions-legales.html", /* Privacy policy url */
+
+"hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
+"cookieName": "tarteaucitron", /* Cookie name */
+"orientation": "middle", /* Banner position (top - bottom) */
+
+"showAlertSmall": false, /* Show the small banner on bottom right */
+"cookieslist": false, /* Show the cookie list */
+
+"closePopup": false, /* Show a close X on the banner */
+
+"showIcon": true, /* Show cookie icon to manage cookies */
+"iconPosition": "BottomRight", /* BottomRight, BottomLeft, TopRight and TopLeft */
+
+"adblocker": false, /* Show a Warning if an adblocker is detected */
+
+"DenyAllCta": true, /* Show the deny all button */
+"AcceptAllCta": true, /* Show the accept all button when highPrivacy on */
+"highPrivacy": true, /* HIGHLY RECOMMANDED Disable auto consent */
+
+"handleBrowserDNTRequest": false, /* If Do Not Track == 1, disallow all */
+
+"removeCredit": false, /* Remove credit link */
+"moreInfoLink": true, /* Show more info link */
+
+"useExternalCss": false, /* If false, the tarteaucitron.css file will be loaded */
+"useExternalJs": false,
+/* If false, the tarteaucitron.js file will be loaded */
+
+// "cookieDomain": ".my-multisite-domaine.fr", /* Shared cookie for multisite */
+
+"readmoreLink": "", /* Change the default readmore link */
+
+"mandatory": true, /* Show a message about mandatory cookies */
+});
+tarteaucitron.user.multiplegtagUa = ['G-575QQM9YD5', 'G-575QQM9YD5', 'G-575QQM9YD5'];
+(tarteaucitron.job = tarteaucitron.job || []).push('multiplegtag');
+tarteaucitron.user.googletagmanagerId = 'GTM-W7JJJLX';
+(tarteaucitron.job = tarteaucitron.job || []).push('googletagmanager');
+		</script>
+
+
 		{#favicon#}
-		<link rel="apple-touch-icon" sizes="152x152" href="image/favicon1/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="image/favicon1/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="image/favicon1/favicon-16x16.png">
-		<link rel="manifest" href="image/favicon1/site.webmanifest">
-		<link rel="mask-icon" href="image/favicon1/safari-pinned-tab.svg" color="#5bbad5">
+		<link rel="apple-touch-icon" sizes="180x180" href="{{ asset ('image/favicon-griffa/apple-touch-icon.png')}}">
+		<link rel="icon" type="image/png" sizes="32x32" href="{{ asset ('image/favicon-griffa/favicon-32x32.png')}}">
+		<link rel="icon" type="image/png" sizes="16x16" href="{{ asset ('image/favicon-griffa/favicon-16x16.png')}}">
+		<link rel="manifest" href="{{ asset ('image/favicon-griffa/site.webmanifest')}}">
+		<link rel="mask-icon" href="{{ asset ('image/favicon-griffa/safari-pinned-tab.svg')}}" color="#5bbad5">
 		<meta name="msapplication-TileColor" content="#da532c">
 		<meta
-		name="theme-color" content="#ffffff">
+		name="theme-color" content="#382727">
 		{#streetmaps#}
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
 		<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"/>
@@ -30,39 +77,46 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 		{% block meta %}
-			<meta name="description " content=" lunettes contre la lumiere bleue, de soleil et de vue design directement de l'usine au consommateurs. trouvez votre style">
+			<meta name="description " content=" lunettes contre la lumiere bleue, de soleil et de vue, plusieurs marques rayban carrera hugo boss prada tom ford pour toutes sortes,lunettes sport classique original  tendance discret, prix imbattable trouvez votre style">
 		{% endblock %}
 
 		{#seo author#}
 		<meta
-		name="author" content="beauty eyes">
+		name="Benyahia abdennour" content="lunettriegriffa">
 		{#seo href#}
 		<link rel="canonical" href="https://grifa-lunetier.com/">
 
 		<title>
-			{% block title %}Welcome!
+			{% block title %}Griffa lunettes
 			{% endblock %}
 		</title>
 		{% block stylesheets %}{% endblock %}
 	</head>
-
-	{% block body %}
-		{% block content %}{% endblock %}
-	{% endblock %}
-
-	{#street maps js#}
-	<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
-	<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-	<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
-	<script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
-	{# js bootsatrap #}
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+	<body>
 
 
-	{# main js#}
-	<script src="{{asset('js/main.js')}}"></script>
-	{# font awsome#}
-	<script src="https://kit.fontawesome.com/89020d4bf7.js" crossorigin="anonymous"></script>
-	{% block javascript %}{% endblock %}
+		{% block body %}
+			{% block content %}{% endblock %}
+		{% endblock %}
+		{# cookies#}
+
+
+		{#street maps js#}
+		<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+		<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+		<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+		<script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+		{# js bootsatrap #}
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+
+
+		{# main js#}
+		<script src="{{asset('js/main.js')}}"></script>
+		{# font awsome#}
+		<script src="https://kit.fontawesome.com/89020d4bf7.js" crossorigin="anonymous"></script>
+		{% block javascript %}
+			<script src="{{asset('js/main.js')}}"></script>
+		{% endblock %}
+	</body>
 </html>

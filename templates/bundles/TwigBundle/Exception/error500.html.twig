@@ -1,0 +1,23 @@
+{% extends "layout.html.twig" %}
+{% block title %}
+	Page non trouvée
+{% endblock %}
+{% block carousel %}{% endblock %}
+{% block content %}
+
+
+	<div id="notfound">
+		<div class="notfound">
+			<div class="notfound-404">
+				<h1>Oops!</h1>
+			</div>
+			<div class="back-message">
+				<h2 class='text'>Page not found</h2>
+				<p class='text-p'>code Erreur :{{status_code}}</p>
+				<p class='text-p'>Message Erreur :{{status_text}}</p>
+				<p class='text-p'>{{exception.message}}</p>
+				<a href="{{path('home')}}">Go To Homepage</a>
+			</div>
+		</div>
+	</div>
+</div>{% endblock %}

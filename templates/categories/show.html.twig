@@ -3,120 +3,121 @@
 	<meta name="description " content="{{categories.nomCategorie}} lunettes : lunettes contre la lumiere bleue, de soleil et de vue design directement de l'usine au consommateurs. trouvez votre style">
 {% endblock %}
 {% block title %}
+	lunettes Griffa pour
 	{{categories.nomCategorie}}
 {% endblock %}
 {%  block carousel %}
 
-	<section>
-		<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
-			<ol class="carousel-indicators">
-				<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
-				<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="active"></li>
 
-			</ol>
-			{% if categories.nomCategorie is same as 'homme' %}
-				<div class="carousel-inner " data-interval="8000">
-					<div class="carousel-item active">
-						<div class="overlay-image" style=" background-image: url(../image/cat-homme5.jpg)" alt="{{categories.nomCategorie}}-image"></div>
-						<div class="carousel-caption  d-block">
-							<h1>{% trans %}Reyban{% endtrans %}
-							</h1>
-							<button class=" neon ">
-								<a href="http://127.0.0.1:8000/marque-show/1">{% trans %}Consulter{% endtrans %}</a>
-							</button>
-						</div>
-					</div>
-					<div class="carousel-item " data-interval="8000">
-						<div class="overlay-image" style=" background-image: url(../image/cat-homme6.jpg)" alt="{{categories.nomCategorie}}-image"></div>
-						<div class="carousel-caption d-block">
-							<h1>{% trans %}Carrera{% endtrans %}</h1>
-							<button class=" neon">
-								<a href="http://127.0.0.1:8000/marque-show/2">{% trans %}Consulter{% endtrans %}</a>
-							</button>
-						</div>
-					</div>
+	<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+			<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="active"></li>
 
+		</ol>
+		{% if categories.nomCategorie is same as 'homme' %}
+			<div class="carousel-inner " data-interval="8000">
+				<div class="carousel-item active">
+					<div class="overlay-image" style=" background-image: url(../image/cat-homme5.jpg) "></div>
+					<div class="carousel-caption  d-block">
+						<h1>{% trans %}Reyban{% endtrans %}
+						</h1>
+						<button class=" neon ">
+							<a href="http://127.0.0.1:8000/marque-show/1">{% trans %}Consulter{% endtrans %}</a>
+						</button>
+					</div>
 				</div>
-			{% elseif categories.nomCategorie is same as 'femme' %}
-				<div class="carousel-inner " data-interval="8000">
-					<div class="carousel-item active">
-						<div class="overlay-image" style=" background-image: url(../image/cat-femme1.jpg)" alt="{{categories.nomCategorie}}-image"></div>
-						<div class="carousel-caption  d-block">
-							<h1>{% trans %}Reyban{% endtrans %}
-							</h1>
-							<button class=" neon ">
-								<a href="http://127.0.0.1:8000/marque-show/1">{% trans %}Consulter{% endtrans %}</a>
-							</button>
-						</div>
+				<div class="carousel-item " data-interval="8000">
+					<div class="overlay-image" style=" background-image: url(../image/cat-homme6.jpg)"></div>
+					<div class="carousel-caption d-block">
+						<h1>{% trans %}Carrera{% endtrans %}</h1>
+						<button class=" neon">
+							<a href="http://127.0.0.1:8000/marque-show/2">{% trans %}Consulter{% endtrans %}</a>
+						</button>
 					</div>
-					<div class="carousel-item " data-interval="8000">
-						<div class="overlay-image" style=" background-image: url(../image/cat-femme2.jpg)" alt="{{categories.nomCategorie}}-image"></div>
-						<div class="carousel-caption d-block">
-							<h1>{% trans %}Carrera{% endtrans %}</h1>
-							<button class=" neon">
-								<a href="http://127.0.0.1:8000/marque-show/2">{% trans %}Consulter{% endtrans %}</a>
-							</button>
-						</div>
-					</div>
-
 				</div>
-			{% elseif categories.nomCategorie is same as 'mixte' %}
-				<div class="carousel-inner " data-interval="8000">
-					<div class="carousel-item active">
-						<div class="overlay-image" style=" background-image: url(../image/cat-mixte1.jpg)" alt="{{categories.nomCategorie}}-image"></div>
-						<div class="carousel-caption  d-block">
-							<h1>{% trans %}Reyban{% endtrans %}
-							</h1>
-							<button class=" neon ">
-								<a href="http://127.0.0.1:8000/marque-show/1">{% trans %}Consulter{% endtrans %}</a>
-							</button>
-						</div>
-					</div>
-					<div class="carousel-item " data-interval="8000">
-						<div class="overlay-image" style=" background-image: url(../image/cat-mixte2.jpg)" alt="{{categories.nomCategorie}}-image"></div>
-						<div class="carousel-caption d-block">
-							<h1>{% trans %}Carrera{% endtrans %}</h1>
-							<button class=" neon">
-								<a href="http://127.0.0.1:8000/marque-show/2">{% trans %}Consulter{% endtrans %}</a>
-							</button>
-						</div>
-					</div>
 
+			</div>
+		{% elseif categories.nomCategorie is same as 'femme' %}
+			<div class="carousel-inner " data-interval="8000">
+				<div class="carousel-item active">
+					<div class="overlay-image" style=" background-image: url(../image/cat-femme1.jpg)"></div>
+					<div class="carousel-caption  d-block">
+						<h1>{% trans %}Reyban{% endtrans %}
+						</h1>
+						<button class=" neon ">
+							<a href="http://127.0.0.1:8000/marque-show/1">{% trans %}Consulter{% endtrans %}</a>
+						</button>
+					</div>
 				</div>
-			{% elseif categories.nomCategorie is same as 'enfant' %}
-				<div class="carousel-inner " data-interval="8000">
-					<div class="carousel-item active">
-						<div class="overlay-image" style=" background-image: url(../image/cat-enfant1.jpg)" alt="{{categories.nomCategorie}}-image"></div>
-						<div class="carousel-caption  d-block">
-							<h1>{% trans %}Reyban{% endtrans %}
-							</h1>
-							<button class=" neon ">
-								<a href="http://127.0.0.1:8000/marque-show/1">{% trans %}Consulter{% endtrans %}</a>
-							</button>
-						</div>
+				<div class="carousel-item " data-interval="8000">
+					<div class="overlay-image" style=" background-image: url(../image/cat-femme2.jpg)"></div>
+					<div class="carousel-caption d-block">
+						<h1>{% trans %}Carrera{% endtrans %}</h1>
+						<button class=" neon">
+							<a href="http://127.0.0.1:8000/marque-show/2">{% trans %}Consulter{% endtrans %}</a>
+						</button>
 					</div>
-					<div class="carousel-item " data-interval="8000">
-						<div class="overlay-image" style=" background-image: url(../image/cat-enfant2.jpg)" alt="{{categories.nomCategorie}}-image"></div>
-						<div class="carousel-caption d-block">
-							<h1>{% trans %}Carrera{% endtrans %}</h1>
-							<button class=" neon">
-								<a href="http://127.0.0.1:8000/marque-show/2">{% trans %}Consulter{% endtrans %}</a>
-							</button>
-						</div>
-					</div>
+				</div>
 
+			</div>
+		{% elseif categories.nomCategorie is same as 'mixte' %}
+			<article class="carousel-inner " data-interval="8000">
+				<section class="carousel-item active">
+					<div class="overlay-image" style=" background-image: url(../image/cat-mixte1.jpg)"></div>
+					<div class="carousel-caption  d-block">
+						<h1>{% trans %}Reyban{% endtrans %}
+						</h1>
+						<button class=" neon ">
+							<a href="http://127.0.0.1:8000/marque-show/1">{% trans %}Consulter{% endtrans %}</a>
+						</button>
+					</div>
+				</section>
+				<section class="carousel-item " data-interval="8000">
+					<div class="overlay-image" style=" background-image: url(../image/cat-mixte2.jpg)"></div>
+					<div class="carousel-caption d-block">
+						<h1>{% trans %}Carrera{% endtrans %}</h1>
+						<button class=" neon">
+							<a href="http://127.0.0.1:8000/marque-show/2">{% trans %}Consulter{% endtrans %}</a>
+						</button>
+					</div>
+				</section>
+
+			</article>
+		{% elseif categories.nomCategorie is same as 'enfant' %}
+			<div class="carousel-inner " data-interval="8000">
+				<div class="carousel-item active">
+					<div class="overlay-image" style=" background-image: url(../image/cat-enfant1.jpg)"></div>
+					<div class="carousel-caption  d-block">
+						<h1>{% trans %}Reyban{% endtrans %}
+						</h1>
+						<button class=" neon ">
+							<a href="http://127.0.0.1:8000/marque-show/1">{% trans %}Consulter{% endtrans %}</a>
+						</button>
+					</div>
 				</div>
-			{% endif %}
-			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">{% trans %}Previous{% endtrans %}</span>
-			</a>
-			<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">{% trans %}Next{% endtrans %}</span>
-			</a>
-		</div>
-	</section>
+				<div class="carousel-item " data-interval="8000">
+					<div class="overlay-image" style=" background-image: url(../image/cat-enfant2.jpg)"></div>
+					<div class="carousel-caption d-block">
+						<h1>{% trans %}Carrera{% endtrans %}</h1>
+						<button class=" neon">
+							<a href="http://127.0.0.1:8000/marque-show/2">{% trans %}Consulter{% endtrans %}</a>
+						</button>
+					</div>
+				</div>
+
+			</div>
+		{% endif %}
+		<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">{% trans %}Previous{% endtrans %}</span>
+		</a>
+		<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">{% trans %}Next{% endtrans %}</span>
+		</a>
+	</div>
+
 {% endblock %}
 {% block content %}
 	{% for flashError in app.flashes('verify_email_error') %}
@@ -131,11 +132,22 @@
 	{% for message in app.flashes(' danger')%}
 		<div class=' alert alert-danger'>{{message}}</div>
 	{% endfor %}
+	<div class="row ml-2">
+		<div class="col-8 mx-auto">
+			<div class="product-image">
+				{% if categories.nomCategorie is same as 'homme' %}
+					<img class="pic-1" src="{{ asset ('/image/head-hommee.png')}}" alt="homme avec lunettes">
+				{% elseif categories.nomCategorie is same as 'femme' %}
+					<img class="pic-1" src="{{ asset ('/image/head-femme.jpg')}}" alt="femme avec lunettes">
+				{% elseif categories.nomCategorie is same as 'mixte' %}
+					<img class="pic-1" src="{{ asset ('/image/head-mixte.png')}}" alt="mixte avec lunettes">
+				{% elseif categories.nomCategorie is same as 'enfant' %}
+					<img class="pic-1" src="{{ asset ('/image/head-enfant.png')}}" alt="enfant avec lunettes">
+				{% endif %}
+			</div>
+		</div>
+	</div>
 
-	<div {% if categories.nomCategorie is same as 'homme' %} class="container-fluid padding head-produit-homme mt-2  " {% elseif categories.nomCategorie is same as 'femme' %} class="container-fluid padding head-produit-femme mt-2  " {% elseif categories.nomCategorie is same as 'enfant' %} class="container-fluid padding head-produit-enfant mt-2  " {% elseif categories.nomCategorie is same as 'mixte' %} class="container-fluid padding head-produit-mixte mt-2  " {% endif %}></div>
-	{#<div class="container-fluid padding  mt-2 text-center ">
-																										<h1 {% if categories.nomCategorie is same as 'homme' %} class="product-new-label cat-homme" {% elseif categories.nomCategorie is same as 'femme' %} class="product-new-label cat-femme" {% elseif categories.nomCategorie is same as 'enfant' %} class="product-new-label cat-enfant" {% elseif categories.nomCategorie is same as 'mixte' %} class="product-new-label cat-mixte" {% endif %}>{{categories.nomCategorie}}</h1>
-																									</div>#}
 	<div class="container">
 		{% if categories.articles.key is  same as null %}
 			<div class="container-fluid padding">
@@ -158,7 +170,7 @@
 					<article class="col-lg-3 col-md-4 col-sm-6">
 						<div class="product-grid">
 							<div class="product-image">
-								<a href="{{path('article', {'slug': marque.slug})}}">
+								<a href="{{path('article', {'slug': article.slug})}}">
 									<figure><img class="pic-1" src="{{ asset ('/images/attachments/' ~ article.attachments[0].image )}}" alt="{{article.imageAlt}}"></figure>
 									<figure><img class="pic-2" src="{{ asset ('/images/attachments/' ~ article.attachments[1].image)}}" alt="{{article.imageAlt}}"></figure>
 
@@ -166,7 +178,7 @@
 								</a>
 								<ul class="social text-center">
 									<li>
-										<a href="{{path('article', {'slug': marque.slug})}}" data-tip="Quick View">
+										<a href="{{path('article', {'slug': article.slug})}}" data-tip="Quick View">
 											<i class="fa fa-search"></i>
 										</a>
 									</li>
@@ -179,7 +191,7 @@
 
 							<div class="product-content">
 								<h3 class="title">
-									<a href="{{path('article', {'slug': marque.slug})}}">{{article.nom}}</a>
+									<a href="{{path('article', {'slug': article.slug})}}">{{article.nom}}</a>
 
 								</h3>
 								<a href="#" class="categ">{% trans %}Pour

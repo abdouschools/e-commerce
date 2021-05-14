@@ -59,10 +59,10 @@
 						{% if articles | length == 0 %}
 							<tr>
 								<td colspan='4'>
-									<center>{% trans %}Aucun articles dans le panier{% endtrans %}</center>
-									<center>
+									<p class="center">{% trans %}Aucun articles dans le panier{% endtrans %}</p>
+									<p class="center">
 										<a class="forget-link" href="{{path ('filter')}}">{% trans %}Continuer vos achats{% endtrans %}</a>
-									</center>
+									</p>
 								</td>
 							</tr>
 						{% endif %}
@@ -77,8 +77,7 @@
 
 									<td>{{produit.prix }}
 										€</td>
-									{#<td>{{produit.prix }}
-																																																																																																																					€</td>#}
+
 									<td>
 										<select name="qte" class='span1' onchange="this.form.submit()">
 											{% for i in  1..10 %}

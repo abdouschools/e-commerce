@@ -1,8 +1,8 @@
 swiftmailer:
   #url: '%env(MAILER_URL)%'
   transport: gmail
-  username: abdouschools@gmail.com
-  password: 23121988hotmail
+  username: nom@gmail.com
+  password: 111111111
   host: localhost
   port: 465
   encryption: ssl

@@ -15,8 +15,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ContactType extends AbstractType
 {
-    private $translator;
-
     public function __construct(TranslatorInterface $translator)
     {
         $this->translator = $translator;
@@ -31,25 +29,22 @@ class ContactType extends AbstractType
                     new NotBlank([]),
                     new Length([
                         'min' => 2,
-                        // max length allowed by Symfony for security reasons
                         'max' => 100,
                     ]),
                 ],
             ])
-            ->add('email', EmailType::class, [ //hna hnha zadna type hada bah yafham bali email wyatlob ykon email
+            ->add('email', EmailType::class, [
                 'label' => false,
                 'constraints' => [
                     new NotBlank([]),
                     new Email(),
                     new Length([
                         'min' => 10,
-                        // max length allowed by Symfony for security reasons
                         'max' => 100,
                     ]),
                 ],
-                'attr' => ['placeholder' => "Email"] //wahna golnalo yaktabana f label had laktiba
+                'attr' => ['placeholder' => "Email"],
             ])
-
             ->add('message', TextareaType::class, [
                 'label' => false,
                 'attr' => ['placeholder' => 'Message', 'class' => 'input'],

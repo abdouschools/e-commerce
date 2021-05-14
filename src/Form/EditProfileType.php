@@ -24,7 +24,7 @@ class EditProfileType extends AbstractType
                     new Length([
                         'min' => 2,
 
-                        // max length allowed by Symfony for security reasons
+
                         'max' => 100,
                     ]),
                 ],
@@ -37,14 +37,14 @@ class EditProfileType extends AbstractType
                     new Length([
                         'min' => 2,
 
-                        // max length allowed by Symfony for security reasons
+
                         'max' => 100,
                     ]),
 
                 ],
             ])
 
-            ->add('email', EmailType::class, [ //hna hnha zadna type hada bah yafham bali email wyatlob ykon email
+            ->add('email', EmailType::class, [
                 'label' => false,
                 'constraints' => [
                     new NotBlank([]),
@@ -53,12 +53,12 @@ class EditProfileType extends AbstractType
                     new Length([
                         'min' => 10,
 
-                        // max length allowed by Symfony for security reasons
+
                         'max' => 100,
 
                     ]),
                 ],
-                'attr' => ['placeholder' => "Email"] //wahna golnalo yaktabana f label had laktiba
+                'attr' => ['placeholder' => "Email"]
 
             ]);
     }

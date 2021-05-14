@@ -20,7 +20,7 @@ class CategoriesController extends AbstractController
     public function showAll(TranslatorInterface $translator)
     {
         $categories = $this->getDoctrine()->getRepository(Categories::class)->findAll();
-        $message = $translator->trans('no style with this number');
+        $message = $translator->trans('no style with this name');
         if (!$categories) {
             throw $this->createNotFoundException($message);
         }
@@ -46,7 +46,7 @@ class CategoriesController extends AbstractController
         $articles = $paginator->paginate(
             $article, //hna hatina les articles li jabnahom
             $request->query->getInt('page', 1), //hna hatina numero ta la page w 1 aw darnah la malgahach yhat 1 par default
-            4 // hna ma3naha hatana 4 article par page
+            6 // hna ma3naha hatana 4 article par page
         );
         return $this->render('categories/show.html.twig', [
             'categories' => $categories,

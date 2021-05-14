@@ -28,13 +28,13 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            // the name visible to end users
-            ->setTitle('beauty eyes')
+            // the name visible to end user
+            ->setTitle('Griffa')
             // you can include HTML contents too (e.g. to link to an image)
-            ->setTitle('<img src="image/5.png" style="width : 100px ; border-radius : 5px" > <span class="text-small" style="color : rgb(70, 201, 66)">Beauty </span>  <span class="text-small" style="color : rgb(248, 130, 20)"> Eyes.</span>')
+            ->setTitle('<img src="image/logo-final.png" style="width : 100px ; border-radius : 5px" > <span class="text-small" style="color : rgb(70, 201, 66)">Griffa </span>  <span class="text-small" style="color : rgb(248, 130, 20)"> lUNETTES</span>')
 
             // the path defined in this method is passed to the Twig asset() function
-            ->setFaviconPath('image/watermark.png')
+            ->setFaviconPath('image/logo-final.png')
 
             // the domain used by default is 'messages'
             ->setTranslationDomain('my-custom-domain')

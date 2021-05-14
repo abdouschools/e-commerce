@@ -28,7 +28,7 @@ class ContactController extends AbstractController
                 ->setFrom($contact['email'])
 
                 // On attribue le destinataire
-                ->setTo('abdouschools@gmail.com')
+                ->setTo('lunetteriegriffa@gmail.com')
 
                 // On crée le texte avec la vue
                 ->setBody(
@@ -42,6 +42,6 @@ class ContactController extends AbstractController
             $this->addFlash('message', 'Votre message a été transmis, nous vous répondrons dans les meilleurs délais.'); // Permet un message flash de renvoi
 
         }
-        return $this->render('contact/index.html.twig', ['form' =>  $form->createView()]);
+        return $this->render('contact/contact.html.twig', ['form' =>  $form->createView()]);
     }
 }
